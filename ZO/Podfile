@@ -1,0 +1,9 @@
+platform :ios,'7.0'
+
+pod "KLCPopup", '~>1.0'
+pod 'MJRefresh'
+pod 'MBProgressHUD', '~> 0.9.1'
+pod "YYCategories"
+#pod 'BBBadgeBarButtonItem'
+pod 'FMDB'
+pod 'iCarousel'

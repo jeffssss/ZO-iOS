@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "PennameViewController.h"
+#import "MainViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +19,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self checkPenname];
+    
     return YES;
+}
+
+-(void)checkPenname{
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"penname"]){
+        //有笔名，不是第一次打开，进入主页
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[MainViewController alloc] init]];
+    } else {
+        //没有笔名，进入注册页
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[PennameViewController alloc] init]];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

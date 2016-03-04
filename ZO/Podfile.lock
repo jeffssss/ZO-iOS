@@ -1,0 +1,29 @@
+PODS:
+  - FMDB (2.6):
+    - FMDB/standard (= 2.6)
+  - FMDB/standard (2.6)
+  - iCarousel (1.8.2)
+  - KLCPopup (1.0)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.0)
+  - YYCategories (1.0):
+    - YYCategories/no-arc (= 1.0)
+  - YYCategories/no-arc (1.0)
+
+DEPENDENCIES:
+  - FMDB
+  - iCarousel
+  - KLCPopup (~> 1.0)
+  - MBProgressHUD (~> 0.9.1)
+  - MJRefresh
+  - YYCategories
+
+SPEC CHECKSUMS:
+  FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
+  iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
+  KLCPopup: 76c5a19227977f1e53d85236f9ef42257c168d98
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  YYCategories: 08fccb29097e711091d828cdf77a2066ad8ba806
+
+COCOAPODS: 0.39.0

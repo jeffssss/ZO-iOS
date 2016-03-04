@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E458F21FBB26791064ECC06 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD6B7B586AC9CCA5B08E770 /* libPods.a */; };
 		C20570591C89965E0033D189 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C20570581C89965E0033D189 /* main.m */; };
 		C205705C1C89965E0033D189 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C205705B1C89965E0033D189 /* AppDelegate.m */; };
 		C205705F1C89965E0033D189 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C205705E1C89965E0033D189 /* ViewController.m */; };
 		C20570621C89965E0033D189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20570601C89965E0033D189 /* Main.storyboard */; };
 		C20570641C89965E0033D189 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C20570631C89965E0033D189 /* Assets.xcassets */; };
 		C20570671C89965E0033D189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20570651C89965E0033D189 /* LaunchScreen.storyboard */; };
+		C20570741C899F220033D189 /* PennameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20570731C899F220033D189 /* PennameViewController.m */; };
+		C20570781C899FC50033D189 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20570771C899FC50033D189 /* MainViewController.m */; };
+		C20570801C89A6E20033D189 /* SealView.m in Sources */ = {isa = PBXBuildFile; fileRef = C205707F1C89A6E20033D189 /* SealView.m */; };
+		C20570821C89A6F60033D189 /* seal_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570811C89A6F60033D189 /* seal_background.png */; };
+		C20570851C89B6180033D189 /* 汉仪篆书繁.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */; };
+		C20570871C89EC9B0033D189 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20570861C89EC9A0033D189 /* Reveal.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B0B0B356551C2EBF461E346 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1CD6B7B586AC9CCA5B08E770 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A1A2E9293D64D88FA61E96A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C20570541C89965E0033D189 /* ZO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20570581C89965E0033D189 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C205705A1C89965E0033D189 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +36,16 @@
 		C20570631C89965E0033D189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C20570661C89965E0033D189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C20570681C89965E0033D189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C20570721C899F220033D189 /* PennameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PennameViewController.h; sourceTree = "<group>"; };
+		C20570731C899F220033D189 /* PennameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PennameViewController.m; sourceTree = "<group>"; };
+		C20570761C899FC50033D189 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		C20570771C899FC50033D189 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		C205707E1C89A6E20033D189 /* SealView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SealView.h; sourceTree = "<group>"; };
+		C205707F1C89A6E20033D189 /* SealView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SealView.m; sourceTree = "<group>"; };
+		C20570811C89A6F60033D189 /* seal_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seal_background.png; sourceTree = "<group>"; };
+		C20570831C89ADD00033D189 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "汉仪篆书繁.ttf"; sourceTree = "<group>"; };
+		C20570861C89EC9A0033D189 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +53,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E458F21FBB26791064ECC06 /* libPods.a in Frameworks */,
+				C20570871C89EC9B0033D189 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C7FDFDC82CA396F71B22398 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A1A2E9293D64D88FA61E96A /* Pods.debug.xcconfig */,
+				1B0B0B356551C2EBF461E346 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7C9C061A720DB98AE37B5FDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C20570861C89EC9A0033D189 /* Reveal.framework */,
+				1CD6B7B586AC9CCA5B08E770 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C205704B1C89965E0033D189 = {
 			isa = PBXGroup;
 			children = (
 				C20570561C89965E0033D189 /* ZO */,
 				C20570551C89965E0033D189 /* Products */,
+				6C7FDFDC82CA396F71B22398 /* Pods */,
+				7C9C061A720DB98AE37B5FDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,14 +100,17 @@
 		C20570561C89965E0033D189 /* ZO */ = {
 			isa = PBXGroup;
 			children = (
-				C205705A1C89965E0033D189 /* AppDelegate.h */,
-				C205705B1C89965E0033D189 /* AppDelegate.m */,
+				C20570791C89A2F10033D189 /* tool */,
+				C20570751C899FAB0033D189 /* main */,
+				C20570711C899F220033D189 /* penName */,
 				C205705D1C89965E0033D189 /* ViewController.h */,
 				C205705E1C89965E0033D189 /* ViewController.m */,
 				C20570601C89965E0033D189 /* Main.storyboard */,
 				C20570631C89965E0033D189 /* Assets.xcassets */,
 				C20570651C89965E0033D189 /* LaunchScreen.storyboard */,
 				C20570681C89965E0033D189 /* Info.plist */,
+				C205705A1C89965E0033D189 /* AppDelegate.h */,
+				C205705B1C89965E0033D189 /* AppDelegate.m */,
 				C20570571C89965E0033D189 /* Supporting Files */,
 			);
 			path = ZO;
@@ -74,9 +119,39 @@
 		C20570571C89965E0033D189 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */,
+				C20570811C89A6F60033D189 /* seal_background.png */,
 				C20570581C89965E0033D189 /* main.m */,
+				C20570831C89ADD00033D189 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C20570711C899F220033D189 /* penName */ = {
+			isa = PBXGroup;
+			children = (
+				C20570721C899F220033D189 /* PennameViewController.h */,
+				C20570731C899F220033D189 /* PennameViewController.m */,
+			);
+			path = penName;
+			sourceTree = "<group>";
+		};
+		C20570751C899FAB0033D189 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				C20570761C899FC50033D189 /* MainViewController.h */,
+				C20570771C899FC50033D189 /* MainViewController.m */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		C20570791C89A2F10033D189 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				C205707E1C89A6E20033D189 /* SealView.h */,
+				C205707F1C89A6E20033D189 /* SealView.m */,
+			);
+			path = tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +161,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C205706B1C89965E0033D189 /* Build configuration list for PBXNativeTarget "ZO" */;
 			buildPhases = (
+				681217AADF011FED2F860D78 /* Check Pods Manifest.lock */,
 				C20570501C89965E0033D189 /* Sources */,
 				C20570511C89965E0033D189 /* Frameworks */,
 				C20570521C89965E0033D189 /* Resources */,
+				EE9D4F14387424FBAA821686 /* Embed Pods Frameworks */,
+				1FA98F02C1FEB755FE6325CE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,13 +215,63 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C20570851C89B6180033D189 /* 汉仪篆书繁.ttf in Resources */,
 				C20570671C89965E0033D189 /* LaunchScreen.storyboard in Resources */,
 				C20570641C89965E0033D189 /* Assets.xcassets in Resources */,
+				C20570821C89A6F60033D189 /* seal_background.png in Resources */,
 				C20570621C89965E0033D189 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FA98F02C1FEB755FE6325CE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		681217AADF011FED2F860D78 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EE9D4F14387424FBAA821686 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C20570501C89965E0033D189 /* Sources */ = {
@@ -151,7 +279,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C205705F1C89965E0033D189 /* ViewController.m in Sources */,
+				C20570741C899F220033D189 /* PennameViewController.m in Sources */,
+				C20570801C89A6E20033D189 /* SealView.m in Sources */,
 				C205705C1C89965E0033D189 /* AppDelegate.m in Sources */,
+				C20570781C899FC50033D189 /* MainViewController.m in Sources */,
 				C20570591C89965E0033D189 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,10 +391,47 @@
 		};
 		C205706C1C89965E0033D189 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A1A2E9293D64D88FA61E96A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ZO/PrefixHeader.pch";
 				INFOPLIST_FILE = ZO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"FMDB\"",
+					"-l\"KLCPopup\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"YYCategories\"",
+					"-l\"iCarousel\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.JF.ZO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -271,10 +439,47 @@
 		};
 		C205706D1C89965E0033D189 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B0B0B356551C2EBF461E346 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ZO/PrefixHeader.pch";
 				INFOPLIST_FILE = ZO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"FMDB\"",
+					"-l\"KLCPopup\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"YYCategories\"",
+					"-l\"iCarousel\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.JF.ZO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -299,6 +504,7 @@
 				C205706D1C89965E0033D189 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
