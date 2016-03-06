@@ -11,4 +11,6 @@
 @interface SealView : UIView
 
 @property(nonatomic,copy) NSString *nameString;
+
+-(void)adjustFrame;
 @end

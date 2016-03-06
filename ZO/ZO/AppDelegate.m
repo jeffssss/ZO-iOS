@@ -33,6 +33,7 @@
         //没有笔名，进入注册页
         self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[PennameViewController alloc] init]];
     }
+//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[PennameViewController alloc] init]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

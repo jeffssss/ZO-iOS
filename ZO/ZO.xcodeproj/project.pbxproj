@@ -17,9 +17,14 @@
 		C20570741C899F220033D189 /* PennameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20570731C899F220033D189 /* PennameViewController.m */; };
 		C20570781C899FC50033D189 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20570771C899FC50033D189 /* MainViewController.m */; };
 		C20570801C89A6E20033D189 /* SealView.m in Sources */ = {isa = PBXBuildFile; fileRef = C205707F1C89A6E20033D189 /* SealView.m */; };
-		C20570821C89A6F60033D189 /* seal_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570811C89A6F60033D189 /* seal_background.png */; };
-		C20570851C89B6180033D189 /* 汉仪篆书繁.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */; };
 		C20570871C89EC9B0033D189 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20570861C89EC9A0033D189 /* Reveal.framework */; };
+		C205708B1C8AD5AE0033D189 /* MyFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C205708A1C8AD5AE0033D189 /* MyFontViewController.m */; };
+		C20570911C8AE4010033D189 /* FontThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C20570901C8AE4010033D189 /* FontThumbnailView.m */; };
+		C20570951C8BEF5A0033D189 /* tianzige@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570931C8BEF5A0033D189 /* tianzige@2x.png */; };
+		C20570961C8BEF5A0033D189 /* tianzige@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570941C8BEF5A0033D189 /* tianzige@3x.png */; };
+		C20570991C8BF95D0033D189 /* 汉仪篆书繁.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */; };
+		C24A18421C8C0BB400FEFF21 /* FMDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */; };
+		C24A18451C8C150000FEFF21 /* ZOFontModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18441C8C150000FEFF21 /* ZOFontModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,10 +47,20 @@
 		C20570771C899FC50033D189 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		C205707E1C89A6E20033D189 /* SealView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SealView.h; sourceTree = "<group>"; };
 		C205707F1C89A6E20033D189 /* SealView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SealView.m; sourceTree = "<group>"; };
-		C20570811C89A6F60033D189 /* seal_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seal_background.png; sourceTree = "<group>"; };
+		C20570811C89A6F60033D189 /* seal_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seal_background.png; path = ../seal_background.png; sourceTree = "<group>"; };
 		C20570831C89ADD00033D189 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "汉仪篆书繁.ttf"; sourceTree = "<group>"; };
+		C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "汉仪篆书繁.ttf"; path = "../汉仪篆书繁.ttf"; sourceTree = "<group>"; };
 		C20570861C89EC9A0033D189 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		C20570891C8AD5AE0033D189 /* MyFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFontViewController.h; sourceTree = "<group>"; };
+		C205708A1C8AD5AE0033D189 /* MyFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFontViewController.m; sourceTree = "<group>"; };
+		C205708F1C8AE4010033D189 /* FontThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontThumbnailView.h; path = ../myfont/FontThumbnailView.h; sourceTree = "<group>"; };
+		C20570901C8AE4010033D189 /* FontThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontThumbnailView.m; path = ../myfont/FontThumbnailView.m; sourceTree = "<group>"; };
+		C20570931C8BEF5A0033D189 /* tianzige@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianzige@2x.png"; sourceTree = "<group>"; };
+		C20570941C8BEF5A0033D189 /* tianzige@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianzige@3x.png"; sourceTree = "<group>"; };
+		C24A18401C8C0BB400FEFF21 /* FMDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBHelper.h; sourceTree = "<group>"; };
+		C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBHelper.m; sourceTree = "<group>"; };
+		C24A18431C8C150000FEFF21 /* ZOFontModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZOFontModel.h; sourceTree = "<group>"; };
+		C24A18441C8C150000FEFF21 /* ZOFontModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZOFontModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				C20570791C89A2F10033D189 /* tool */,
+				C20570881C8AD5820033D189 /* myfont */,
 				C20570751C899FAB0033D189 /* main */,
 				C20570711C899F220033D189 /* penName */,
 				C205705D1C89965E0033D189 /* ViewController.h */,
@@ -111,6 +127,7 @@
 				C20570681C89965E0033D189 /* Info.plist */,
 				C205705A1C89965E0033D189 /* AppDelegate.h */,
 				C205705B1C89965E0033D189 /* AppDelegate.m */,
+				C20570921C8BEF410033D189 /* Resource */,
 				C20570571C89965E0033D189 /* Supporting Files */,
 			);
 			path = ZO;
@@ -119,8 +136,6 @@
 		C20570571C89965E0033D189 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */,
-				C20570811C89A6F60033D189 /* seal_background.png */,
 				C20570581C89965E0033D189 /* main.m */,
 				C20570831C89ADD00033D189 /* PrefixHeader.pch */,
 			);
@@ -150,8 +165,34 @@
 			children = (
 				C205707E1C89A6E20033D189 /* SealView.h */,
 				C205707F1C89A6E20033D189 /* SealView.m */,
+				C205708F1C8AE4010033D189 /* FontThumbnailView.h */,
+				C20570901C8AE4010033D189 /* FontThumbnailView.m */,
+				C24A18401C8C0BB400FEFF21 /* FMDBHelper.h */,
+				C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */,
 			);
 			path = tool;
+			sourceTree = "<group>";
+		};
+		C20570881C8AD5820033D189 /* myfont */ = {
+			isa = PBXGroup;
+			children = (
+				C20570891C8AD5AE0033D189 /* MyFontViewController.h */,
+				C205708A1C8AD5AE0033D189 /* MyFontViewController.m */,
+				C24A18431C8C150000FEFF21 /* ZOFontModel.h */,
+				C24A18441C8C150000FEFF21 /* ZOFontModel.m */,
+			);
+			path = myfont;
+			sourceTree = "<group>";
+		};
+		C20570921C8BEF410033D189 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */,
+				C20570811C89A6F60033D189 /* seal_background.png */,
+				C20570931C8BEF5A0033D189 /* tianzige@2x.png */,
+				C20570941C8BEF5A0033D189 /* tianzige@3x.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,10 +256,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C20570851C89B6180033D189 /* 汉仪篆书繁.ttf in Resources */,
+				C20570991C8BF95D0033D189 /* 汉仪篆书繁.ttf in Resources */,
 				C20570671C89965E0033D189 /* LaunchScreen.storyboard in Resources */,
 				C20570641C89965E0033D189 /* Assets.xcassets in Resources */,
-				C20570821C89A6F60033D189 /* seal_background.png in Resources */,
+				C20570951C8BEF5A0033D189 /* tianzige@2x.png in Resources */,
+				C20570961C8BEF5A0033D189 /* tianzige@3x.png in Resources */,
 				C20570621C89965E0033D189 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,11 +320,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C205708B1C8AD5AE0033D189 /* MyFontViewController.m in Sources */,
+				C24A18421C8C0BB400FEFF21 /* FMDBHelper.m in Sources */,
 				C205705F1C89965E0033D189 /* ViewController.m in Sources */,
+				C24A18451C8C150000FEFF21 /* ZOFontModel.m in Sources */,
 				C20570741C899F220033D189 /* PennameViewController.m in Sources */,
 				C20570801C89A6E20033D189 /* SealView.m in Sources */,
 				C205705C1C89965E0033D189 /* AppDelegate.m in Sources */,
 				C20570781C899FC50033D189 /* MainViewController.m in Sources */,
+				C20570911C8AE4010033D189 /* FontThumbnailView.m in Sources */,
 				C20570591C89965E0033D189 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

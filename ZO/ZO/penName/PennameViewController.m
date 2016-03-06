@@ -8,6 +8,7 @@
 
 #import "PennameViewController.h"
 #import "SealView.h"
+#import "MainViewController.h"
 
 @interface PennameViewController ()
 
@@ -27,11 +28,13 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title = @"选择笔名";
+    
+    self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     [self pennameLabel];
     [self pennameTextField];
     [self okBtn];
-    [self sealImageView];
+    [self.sealImageView adjustFrame];
 }
 
 #pragma mark - component getter & setter
@@ -70,6 +73,7 @@
     if(nil == _sealImageView){
         _sealImageView = [[SealView alloc] initWithFrame:CGRectMake(30, self.okBtn.bottom+20, kScreenWidth - 30*2, 150)];
         _sealImageView.backgroundColor = [UIColor clearColor];
+        _sealImageView.opaque = NO;//默认为YES，则截图后背景是黑色的。
         [self.view addSubview:_sealImageView];
     }
     return _sealImageView;
@@ -78,8 +82,24 @@
 
 #pragma mark - sel
 -(void)onBtnClick:(id)sender{
-    [self refreshSeal];
+    if([self.pennameTextField.text isEqualToString:@""] || [self.pennameTextField.text length]>6){
+        return;
+    }
     
+//    [self refreshSeal];
+    
+    //TODO:提示用户是否确定
+    
+    //当点确认后
+    //生成截图 放到存到userDefault
+    NSData *imageData=[NSKeyedArchiver archivedDataWithRootObject:[self.sealImageView snapshotImage]];
+    [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:@"sealimage"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.pennameTextField.text forKey:@"penname"];
+    
+    //跳转到mian
+    MainViewController *mainViewController = [[MainViewController alloc] init];
+    UINavigationController *mainControllerNav =  [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    [[UIApplication sharedApplication].delegate window].rootViewController = mainControllerNav;
     
 }
 
@@ -88,7 +108,7 @@
         return;
     }
     self.sealImageView.nameString = self.pennameTextField.text;
-    [self.sealImageView setNeedsDisplay];
+    [self.sealImageView adjustFrame];
 }
 
 @end
