@@ -45,7 +45,7 @@ NSString * const CREATETIME = @"createtime";
              id integer PRIMARY KEY AUTOINCREMENT,//字的id,自增
              name text,//字名
              path text,//字存放的路径
-             type integer,//类型：1，一级汉子，2，二级汉子，4，其他
+             type integer,//类型：1，一级汉子，2，二级汉子，3，其他
              createtime text//保存的时间
              )
              */

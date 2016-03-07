@@ -25,6 +25,7 @@
 		C20570991C8BF95D0033D189 /* 汉仪篆书繁.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */; };
 		C24A18421C8C0BB400FEFF21 /* FMDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */; };
 		C24A18451C8C150000FEFF21 /* ZOFontModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18441C8C150000FEFF21 /* ZOFontModel.m */; };
+		C24A18481C8D5B2100FEFF21 /* ZOPNGManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18471C8D5B2100FEFF21 /* ZOPNGManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,8 @@
 		C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBHelper.m; sourceTree = "<group>"; };
 		C24A18431C8C150000FEFF21 /* ZOFontModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZOFontModel.h; sourceTree = "<group>"; };
 		C24A18441C8C150000FEFF21 /* ZOFontModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZOFontModel.m; sourceTree = "<group>"; };
+		C24A18461C8D5B2100FEFF21 /* ZOPNGManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZOPNGManager.h; sourceTree = "<group>"; };
+		C24A18471C8D5B2100FEFF21 /* ZOPNGManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZOPNGManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,8 @@
 				C20570901C8AE4010033D189 /* FontThumbnailView.m */,
 				C24A18401C8C0BB400FEFF21 /* FMDBHelper.h */,
 				C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */,
+				C24A18461C8D5B2100FEFF21 /* ZOPNGManager.h */,
+				C24A18471C8D5B2100FEFF21 /* ZOPNGManager.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C24A18481C8D5B2100FEFF21 /* ZOPNGManager.m in Sources */,
 				C205708B1C8AD5AE0033D189 /* MyFontViewController.m in Sources */,
 				C24A18421C8C0BB400FEFF21 /* FMDBHelper.m in Sources */,
 				C205705F1C89965E0033D189 /* ViewController.m in Sources */,
