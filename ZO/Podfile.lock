@@ -2,6 +2,7 @@ PODS:
   - FMDB (2.6):
     - FMDB/standard (= 2.6)
   - FMDB/standard (2.6)
+  - FXBlurView (1.6.4)
   - iCarousel (1.8.2)
   - KLCPopup (1.0)
   - MBProgressHUD (0.9.2)
@@ -12,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - FMDB
+  - FXBlurView (~> 1.6.4)
   - iCarousel
   - KLCPopup (~> 1.0)
   - MBProgressHUD (~> 0.9.1)
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
+  FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
   iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
   KLCPopup: 76c5a19227977f1e53d85236f9ef42257c168d98
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1

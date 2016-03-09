@@ -10,8 +10,10 @@
 #import "FontThumbnailView.h"
 #import "FMDBHelper.h"
 #import "ZOPNGManager.h"
+#import "InputNameView.h"
+#import "WriteWordViewController.h"
 
-@interface MyFontViewController ()
+@interface MyFontViewController ()<InputNameDelegate,UITextFieldDelegate>
 
 @property(nonatomic,strong) UIImageView *backgroundImageView;
 
@@ -31,6 +33,8 @@
 
 @property(nonatomic,strong) UIButton    *writeWordBtn;
 
+@property(nonatomic,strong) KLCPopup    *inputNamePopup;
+
 @end
 
 @implementation MyFontViewController
@@ -47,8 +51,13 @@
 //    [self.view addSubview:thisView];
     //获取数据源
     [self refreshDatasourceArray];
+    
     [self initLayout];
-    //开始排序
+    
+    //TEST blur
+    UIView *vi = [[UIView alloc] initWithFrame:CGRectMake(50, 300, 60, 60)];
+    vi.backgroundColor = [UIColor redColor];
+    [self.view addSubview:vi];
 }
 
 #pragma mark - getter
@@ -61,6 +70,21 @@
         [self.view addSubview:_writeWordBtn];
     }
     return _writeWordBtn;
+}
+
+-(KLCPopup *)inputNamePopup{
+    if(nil == _inputNamePopup){
+        InputNameView *inputNameView = [[InputNameView alloc] initWithFrame:CGRectMake(kScreenWidth * 0.1, 0, kScreenWidth * 0.8, 120)];
+        inputNameView.inputNameDelegate = self;
+        inputNameView.textFieldDelegate = self;
+        _inputNamePopup = [KLCPopup popupWithContentView:inputNameView
+                                                showType:KLCPopupShowTypeGrowIn
+                                             dismissType:KLCPopupDismissTypeGrowOut
+                                                maskType:KLCPopupMaskTypeDimmed
+                                dismissOnBackgroundTouch:YES
+                                   dismissOnContentTouch:NO];
+    }
+    return _inputNamePopup;
 }
 
 
@@ -133,11 +157,38 @@
 
 #pragma mark - SEL
 -(void)onWriteBtnClick:(id)sender{
-    
+    [self.inputNamePopup show];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - InputNameDelegate
+-(void)onInputNameOKBtnClick{
+    WriteWordViewController *writeVC = [[WriteWordViewController alloc] init];
+    [self.navigationController pushViewController:writeVC animated:YES];
+    [self.inputNamePopup dismiss:NO];
+}
+
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    // 滚动到键盘上方
+    [UIView beginAnimations:@"moveUpView" context:nil];
+    [UIView setAnimationDuration:0.3f];
+    CGRect frame = self.inputNamePopup.contentView.frame;
+    frame.origin.y = frame.origin.y - 100;
+    self.inputNamePopup.contentView.frame = frame;
+    [UIView commitAnimations];
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    // 恢复
+    [UIView beginAnimations:@"moveUpView" context:nil];
+    [UIView setAnimationDuration:0.3f];
+    CGRect frame = self.inputNamePopup.contentView.frame;
+    frame.origin.y = frame.origin.y + 100;
+    self.inputNamePopup.contentView.frame = frame;
+    [UIView commitAnimations];
 }
 
 @end

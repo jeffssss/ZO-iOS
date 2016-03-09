@@ -7,3 +7,4 @@ pod "YYCategories"
 #pod 'BBBadgeBarButtonItem'
 pod 'FMDB'
 pod 'iCarousel'
+pod 'FXBlurView', '~> 1.6.4'
