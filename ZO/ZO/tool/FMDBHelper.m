@@ -14,7 +14,7 @@ NSString * const TABLENAME = @"zofont";
 NSString * const NAME = @"name";
 NSString * const ZOID = @"zoid";
 NSString * const TYPE = @"type";
-NSString * const PATH = @"path";
+NSString * const FILENAME = @"filename";
 NSString * const CREATETIME = @"createtime";
 
 @interface FMDBHelper ()
@@ -49,7 +49,7 @@ NSString * const CREATETIME = @"createtime";
              createtime text//保存的时间
              )
              */
-            NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('%@' INTEGER PRIMARY KEY AUTOINCREMENT, '%@' TEXT, '%@' TEXT, '%@' INTEGER, '%@' text)",TABLENAME,ZOID,NAME,PATH,TYPE,CREATETIME];
+            NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('%@' INTEGER PRIMARY KEY AUTOINCREMENT, '%@' TEXT, '%@' TEXT, '%@' INTEGER, '%@' text)",TABLENAME,ZOID,NAME,FILENAME,TYPE,CREATETIME];
             BOOL res = [self.db executeUpdate:sqlCreateTable];
             if (!res) {
                 NSLog(@"error when creating db table");
@@ -76,7 +76,7 @@ NSString * const CREATETIME = @"createtime";
     if ([self.db open]) {
         NSString *insertSql1= [NSString stringWithFormat:
                                @"INSERT INTO '%@' ('%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%d', '%@')",
-                               TABLENAME, NAME, PATH, TYPE,CREATETIME, model.name, model.path, (int)model.type,[model.createtime stringWithFormat:@"yyyy-MM-dd HH:mm:ss"]];
+                               TABLENAME, NAME, FILENAME, TYPE,CREATETIME, model.name, model.filename, (int)model.type,[model.createtime stringWithFormat:@"yyyy-MM-dd HH:mm:ss"]];
         BOOL res = [self.db executeUpdate:insertSql1];
         [self.db close];
         return res;
@@ -91,13 +91,13 @@ NSString * const CREATETIME = @"createtime";
         while ([rs next]) {
             int Id = [rs intForColumn:ZOID];
             NSString * name = [rs stringForColumn:NAME];
-            NSString * path = [rs stringForColumn:PATH];
+            NSString * path = [rs stringForColumn:FILENAME];
             int type = [rs intForColumn:TYPE];
             NSDate * createtime = [rs dateForColumn:CREATETIME];
             
             ZOFontModel *model = [[ZOFontModel alloc] init];
             model.zoid = Id;
-            model.path = path;
+            model.filename = path;
             model.type = type;
             model.name = name;
             model.createtime = createtime;

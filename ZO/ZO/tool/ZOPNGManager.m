@@ -11,7 +11,7 @@
 @implementation ZOPNGManager
 
 +(NSString *)saveImageToPNG:(UIImage *)image withName:(NSString *)name{
-    NSString *filename = [NSString stringWithFormat:@"%@%@",name,[[NSDate date] stringWithFormat:@"yyyyMMddHHmmss"]];
+    NSString *filename = [NSString stringWithFormat:@"%@%@.png",name,[[NSDate date] stringWithFormat:@"yyyyMMddHHmmss"]];
     
     NSString *filePath =[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:filename];
     BOOL result = [UIImagePNGRepresentation(image)writeToFile: filePath atomically:YES]; // 保存成功会返回YES
@@ -20,12 +20,13 @@
         NSLog(@"保存成功！");
     } else {
         NSLog(@"保存失败！！！！！filename = %@",filename);
+        return nil;
     }
-    return filePath;
+    return filename;
 }
 
-+(UIImage *)imageWithFilepath:(NSString *)filepath{
-    return [UIImage imageWithContentsOfFile:filepath];
++(UIImage *)imageWithFilepath:(NSString *)filename{
+    return [UIImage imageWithContentsOfFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:filename]];
 }
 
 @end

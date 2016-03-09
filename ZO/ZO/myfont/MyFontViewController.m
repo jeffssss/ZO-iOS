@@ -50,14 +50,15 @@
     
 //    [self.view addSubview:thisView];
     //获取数据源
-    [self refreshDatasourceArray];
+    
     
     [self initLayout];
     
-    //TEST blur
-    UIView *vi = [[UIView alloc] initWithFrame:CGRectMake(50, 300, 60, 60)];
-    vi.backgroundColor = [UIColor redColor];
-    [self.view addSubview:vi];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self refreshDatasourceArray];
+    [self refreshlayout];
 }
 
 #pragma mark - getter
@@ -95,7 +96,7 @@
         [self.datasourceArray addObject:[[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where type = %d order by createtime desc",i]]];//TODO:未测试;不知道能不能倒序查询正确
     }
     //TEST:
-    NSLog(@"Datasource:\nType=1数据有%lu,Type=2数据有%lu,Type=3数据有%lu",(unsigned long)[self.datasourceArray[0] count],(unsigned long)[self.datasourceArray[0] count],(unsigned long)[self.datasourceArray[0] count]);
+    NSLog(@"Datasource:\nType=1数据有%lu,Type=2数据有%lu,Type=3数据有%lu",(unsigned long)[self.datasourceArray[0] count],(unsigned long)[self.datasourceArray[1] count],(unsigned long)[self.datasourceArray[2] count]);
 }
 
 -(void)initLayout{
@@ -115,8 +116,6 @@
     
     //TODO:暂时省略其他类，也暂时把文字只放到一个UILabel里。
     
-    [self refreshlayout];
-    
     [self writeWordBtn];
     
 }
@@ -133,7 +132,9 @@
             }
             //显示图片
             UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(10 + 60*i, 5, 50, 50)];
-            imageview.image = [ZOPNGManager imageWithFilepath:[(ZOFontModel*)self.datasourceArray[0][i] path] ];
+            imageview.backgroundColor = [UIColor redColor];
+            imageview.image = [ZOPNGManager imageWithFilepath:[(ZOFontModel*)self.datasourceArray[0][i] filename] ];
+            NSLog(@"path = %@",[(ZOFontModel*)self.datasourceArray[0][i] filename]);
             [self.firstClassContentView addSubview:imageview];
         }
     } else {
@@ -147,7 +148,7 @@
             }
             //显示图片
             UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(10 + 60*i, 5, 50, 50)];
-            imageview.image = [ZOPNGManager imageWithFilepath:[(ZOFontModel*)self.datasourceArray[1][i] path] ];
+            imageview.image = [ZOPNGManager imageWithFilepath:[(ZOFontModel*)self.datasourceArray[1][i] filename] ];
             [self.secondClassContentView addSubview:imageview];
         }
     } else {
@@ -165,9 +166,13 @@
 }
 
 #pragma mark - InputNameDelegate
--(void)onInputNameOKBtnClick{
+-(void)onInputNameOKBtnClick:(NSString *)nameStr{
+    if([nameStr length]!=1){
+        return;
+    }
     WriteWordViewController *writeVC = [[WriteWordViewController alloc] init];
     [self.navigationController pushViewController:writeVC animated:YES];
+    writeVC.nameString = nameStr;
     [self.inputNamePopup dismiss:NO];
 }
 

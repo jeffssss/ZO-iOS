@@ -11,7 +11,7 @@
 
 @protocol InputNameDelegate <NSObject>
 
--(void)onInputNameOKBtnClick;
+-(void)onInputNameOKBtnClick:(NSString *)nameStr;
 
 @end
 

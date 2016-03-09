@@ -14,7 +14,7 @@
 
 @property(nonatomic,copy)   NSString    *name;
 
-@property(nonatomic,copy)   NSString    *path;
+@property(nonatomic,copy)   NSString    *filename;
 
 @property(nonatomic,assign) NSInteger   type;
 

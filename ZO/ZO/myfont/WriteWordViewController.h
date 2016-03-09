@@ -10,4 +10,6 @@
 
 @interface WriteWordViewController : UIViewController
 
+@property(nonatomic,copy)   NSString    *nameString;
+
 @end

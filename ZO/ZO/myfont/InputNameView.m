@@ -61,8 +61,8 @@
 }
 
 -(void)onOKBtnClick{
-    if([self.inputNameDelegate respondsToSelector:@selector(onInputNameOKBtnClick)]){
-        [self.inputNameDelegate onInputNameOKBtnClick];
+    if([self.inputNameDelegate respondsToSelector:@selector(onInputNameOKBtnClick:)]){
+        [self.inputNameDelegate onInputNameOKBtnClick:self.nameTextField.text];
     }
 }
 
