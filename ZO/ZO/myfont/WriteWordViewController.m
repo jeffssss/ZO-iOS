@@ -104,7 +104,7 @@
     //先假设全部都是一级汉字.
     ZOFontModel *model = [[ZOFontModel alloc] init];
     model.filename = filename;
-    model.type = 1;
+    model.type = [self typeWithNameString:self.nameString];
     model.name = self.nameString;
     model.createtime = [NSDate date];
     

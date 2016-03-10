@@ -28,7 +28,7 @@
     [super viewDidLoad];
     self.title = @"首页";
     
-    self.navigationController.navigationBarHidden = YES;
+    //self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self sealImageView];
@@ -39,7 +39,7 @@
 -(UIImageView *)sealImageView{
     if(nil == _sealImageView){
         UIImage *seal = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"sealimage"]];
-        _sealImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, seal.size.width, seal.size.height)];
+        _sealImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 64, seal.size.width, seal.size.height)];
         _sealImageView.image = seal;
 //        _sealImageView.backgroundColor = [UIColor clearColor];
         [self.view addSubview:_sealImageView];

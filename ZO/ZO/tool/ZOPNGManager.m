@@ -25,7 +25,7 @@
     return filename;
 }
 
-+(UIImage *)imageWithFilepath:(NSString *)filename{
++(UIImage *)imageWithFilename:(NSString *)filename{
     return [UIImage imageWithContentsOfFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:filename]];
 }
 

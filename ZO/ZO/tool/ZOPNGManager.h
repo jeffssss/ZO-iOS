@@ -12,5 +12,5 @@
 
 +(NSString *)saveImageToPNG:(UIImage *)image withName:(NSString *)name;
 
-+(UIImage *)imageWithFilepath:(NSString *)filename;
++(UIImage *)imageWithFilename:(NSString *)filename;
 @end

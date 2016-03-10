@@ -9,9 +9,10 @@
 #import "MyFontViewController.h"
 #import "FontThumbnailView.h"
 #import "FMDBHelper.h"
-#import "ZOPNGManager.h"
 #import "InputNameView.h"
 #import "WriteWordViewController.h"
+#import "SingleWordViewController.h"
+#import "WordListViewController.h"
 
 @interface MyFontViewController ()<InputNameDelegate,UITextFieldDelegate>
 
@@ -93,7 +94,7 @@
 -(void)refreshDatasourceArray{
     self.datasourceArray = [[NSMutableArray alloc] init];
     for(int i = 1 ; i < 4 ; i ++){
-        [self.datasourceArray addObject:[[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where type = %d order by createtime desc",i]]];//TODO:未测试;不知道能不能倒序查询正确
+        [self.datasourceArray addObject:[[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where type = %d order by createtime desc limit 5",i]]];//TODO:未测试;不知道能不能倒序查询正确
     }
     //TEST:
     NSLog(@"Datasource:\nType=1数据有%lu,Type=2数据有%lu,Type=3数据有%lu",(unsigned long)[self.datasourceArray[0] count],(unsigned long)[self.datasourceArray[1] count],(unsigned long)[self.datasourceArray[2] count]);
@@ -101,6 +102,11 @@
 
 -(void)initLayout{
     self.firstClassWordTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 70, kScreenWidth, 40)];
+    [self.firstClassWordTitleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+        WordListViewController *wordlistVC = [[WordListViewController alloc] init];
+        wordlistVC.type = 1;
+        [self.navigationController pushViewController:wordlistVC animated:YES];
+    }]];
     [self.view addSubview:self.firstClassWordTitleView];
     self.firstClassCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.firstClassWordTitleView.width, self.firstClassWordTitleView.height)];
     [self.firstClassWordTitleView addSubview:self.firstClassCountLabel];
@@ -124,6 +130,10 @@
 
     self.firstClassCountLabel.text = @"一级汉字（0/3577）";//TODO:这个数字需要查数据库
     self.secondClassCountLabel.text = @"二级汉字（0/3577）";
+    
+    //先清空subviews
+    [self.firstClassContentView removeAllSubviews];
+    [self.secondClassContentView removeAllSubviews];
     //一级
     if([self.datasourceArray[0] count] > 0 ){
         for(int i = 0 ; i < [self.datasourceArray[0] count] ; i++){
@@ -133,9 +143,18 @@
             //显示图片
             UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(10 + 60*i, 5, 50, 50)];
             imageview.backgroundColor = [UIColor redColor];
-            imageview.image = [ZOPNGManager imageWithFilepath:[(ZOFontModel*)self.datasourceArray[0][i] filename] ];
+            ZOFontModel *model = self.datasourceArray[0][i];
+            imageview.image = [ZOPNGManager imageWithFilename:model.filename];
             NSLog(@"path = %@",[(ZOFontModel*)self.datasourceArray[0][i] filename]);
             [self.firstClassContentView addSubview:imageview];
+            
+            //点击图片跳转
+            imageview.userInteractionEnabled = YES;
+            [imageview addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+                SingleWordViewController *singleVC = [[SingleWordViewController alloc] init];
+                singleVC.model = model;
+                [self.navigationController pushViewController:singleVC animated:YES];
+            }]];
         }
     } else {
         //TODO:本来应该显示无的，现在先不写
@@ -148,8 +167,16 @@
             }
             //显示图片
             UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(10 + 60*i, 5, 50, 50)];
-            imageview.image = [ZOPNGManager imageWithFilepath:[(ZOFontModel*)self.datasourceArray[1][i] filename] ];
+            ZOFontModel *model = self.datasourceArray[1][i];
+            imageview.image = [ZOPNGManager imageWithFilename:model.filename];
             [self.secondClassContentView addSubview:imageview];
+            //点击图片跳转
+            imageview.userInteractionEnabled = YES;
+            [imageview addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+                SingleWordViewController *singleVC = [[SingleWordViewController alloc] init];
+                singleVC.model = model;
+                [self.navigationController pushViewController:singleVC animated:YES];
+            }]];
         }
     } else {
         //TODO:本来应该显示无的，现在先不写

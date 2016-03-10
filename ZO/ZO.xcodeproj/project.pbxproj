@@ -29,6 +29,9 @@
 		C24A184B1C8D6AE300FEFF21 /* WriteWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A184A1C8D6AE300FEFF21 /* WriteWordViewController.m */; };
 		C24A18541C8ECC8900FEFF21 /* InputNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18531C8ECC8900FEFF21 /* InputNameView.m */; };
 		C24A185A1C901C2100FEFF21 /* AFBrushBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */; };
+		C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */; };
+		C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977E1C915A00007B7725 /* WordListViewController.m */; };
+		C2BA97821C916748007B7725 /* SingleWordCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +76,12 @@
 		C24A18531C8ECC8900FEFF21 /* InputNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputNameView.m; sourceTree = "<group>"; };
 		C24A18581C901C2000FEFF21 /* ZO-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZO-Bridging-Header.h"; sourceTree = "<group>"; };
 		C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFBrushBoard.swift; sourceTree = "<group>"; };
+		C2BA977A1C9142E8007B7725 /* SingleWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleWordViewController.h; sourceTree = "<group>"; };
+		C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleWordViewController.m; sourceTree = "<group>"; };
+		C2BA977D1C915A00007B7725 /* WordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordListViewController.h; sourceTree = "<group>"; };
+		C2BA977E1C915A00007B7725 /* WordListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordListViewController.m; sourceTree = "<group>"; };
+		C2BA97801C916748007B7725 /* SingleWordCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleWordCollectionViewCell.h; sourceTree = "<group>"; };
+		C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleWordCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +209,12 @@
 				C24A184A1C8D6AE300FEFF21 /* WriteWordViewController.m */,
 				C24A18521C8ECC8900FEFF21 /* InputNameView.h */,
 				C24A18531C8ECC8900FEFF21 /* InputNameView.m */,
+				C2BA977A1C9142E8007B7725 /* SingleWordViewController.h */,
+				C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */,
+				C2BA977D1C915A00007B7725 /* WordListViewController.h */,
+				C2BA977E1C915A00007B7725 /* WordListViewController.m */,
+				C2BA97801C916748007B7725 /* SingleWordCollectionViewCell.h */,
+				C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */,
 			);
 			path = myfont;
 			sourceTree = "<group>";
@@ -346,12 +361,15 @@
 				C205705F1C89965E0033D189 /* ViewController.m in Sources */,
 				C24A18451C8C150000FEFF21 /* ZOFontModel.m in Sources */,
 				C20570741C899F220033D189 /* PennameViewController.m in Sources */,
+				C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */,
 				C24A184B1C8D6AE300FEFF21 /* WriteWordViewController.m in Sources */,
 				C24A18541C8ECC8900FEFF21 /* InputNameView.m in Sources */,
 				C24A185A1C901C2100FEFF21 /* AFBrushBoard.swift in Sources */,
+				C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */,
 				C20570801C89A6E20033D189 /* SealView.m in Sources */,
 				C205705C1C89965E0033D189 /* AppDelegate.m in Sources */,
 				C20570781C899FC50033D189 /* MainViewController.m in Sources */,
+				C2BA97821C916748007B7725 /* SingleWordCollectionViewCell.m in Sources */,
 				C20570911C8AE4010033D189 /* FontThumbnailView.m in Sources */,
 				C20570591C89965E0033D189 /* main.m in Sources */,
 			);

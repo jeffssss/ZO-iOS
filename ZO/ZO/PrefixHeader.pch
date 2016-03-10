@@ -12,5 +12,5 @@
 #import <YYCategories/YYCategories.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <KLCPopup/KLCPopup.h>
-
+#import "ZOPNGManager.h"
 #endif /* PrefixHeader_pch */
