@@ -30,6 +30,7 @@
     [self completeBtn];
     [self brushContentView];
     [self brushBoard];
+    [self typeWithNameString:@"切"];
 }
 
 #pragma mark - getter
@@ -115,5 +116,52 @@
     
     //返回上一页
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - private
+//获取分类，一级汉字=1 二级汉子=2 其他=3
+-(int)typeWithNameString:(NSString *)namestr{
+    NSStringEncoding encoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSData *data = [namestr dataUsingEncoding:encoding];
+    Byte *bytes = (Byte *)[data bytes];
+    //获取到高位的区码
+    NSInteger randomH = bytes[1];
+    NSInteger areaCode = randomH - 160;
+    NSLog(@"区码：%ld",areaCode);
+    //16~87区为汉字区，包含6763个汉字 。其中16-55区为一级汉字(3755个最常用的汉字，按拼音字母的次序排列)，56-87区为二级汉字(3008个汉字，按部首次序排列)。
+    if(areaCode > 15 && areaCode < 56){
+        return 1;
+    }
+    if(areaCode > 55 && areaCode <88){
+        return 2;
+    }
+    return 3;
+
+}
+//测试用
+-(void)printCode:(NSString *)string{
+    NSStringEncoding encoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSData *data = [string dataUsingEncoding:encoding];
+    NSLog(@"length of data:%lu",(unsigned long)[data length]);
+    Byte *bytes = (Byte *)[data bytes];
+    for(int i = 0 ; i < [data length] ; i++){
+        NSLog(@"data[%d] = %d",i,bytes[i]);
+    }
+}
+//测试用
+-(void)printFont{
+    NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    //data[0] = 199
+    //data[1] = 208
+    NSInteger randomH = 208;
+    
+    NSInteger randomL = 199;
+    
+    NSInteger number = (randomH<<8)+randomL;
+    NSData *data = [NSData dataWithBytes:&number length:2];
+    
+    NSString *string = [[NSString alloc] initWithData:data encoding:gbkEncoding];
+    
+    NSLog(@"%@",string);
 }
 @end
