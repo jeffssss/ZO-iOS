@@ -30,7 +30,6 @@
     [self completeBtn];
     [self brushContentView];
     [self brushBoard];
-    [self typeWithNameString:@"切"];
 }
 
 #pragma mark - getter
@@ -124,10 +123,12 @@
     NSStringEncoding encoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSData *data = [namestr dataUsingEncoding:encoding];
     Byte *bytes = (Byte *)[data bytes];
-    //获取到高位的区码
-    NSInteger randomH = bytes[1];
-    NSInteger areaCode = randomH - 160;
-    NSLog(@"区码：%ld",areaCode);
+    //获取到区码
+//    NSInteger randomH = bytes[1];
+    NSInteger randomL = bytes[0];
+    NSInteger areaCode = randomL - 160;
+//    NSLog(@"区码：%ld",areaCode);
+//    NSLog(@"byte[1]=%ld,byte[0]=%ld",randomH,randomL);
     //16~87区为汉字区，包含6763个汉字 。其中16-55区为一级汉字(3755个最常用的汉字，按拼音字母的次序排列)，56-87区为二级汉字(3008个汉字，按部首次序排列)。
     if(areaCode > 15 && areaCode < 56){
         return 1;
