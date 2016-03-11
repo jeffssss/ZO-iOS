@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "MyFontViewController.h"
+#import "ChooseTemplateViewController.h"
 
 @interface MainViewController ()
 
@@ -84,6 +85,9 @@
     if(sender == self.myfontBtn){
         MyFontViewController *myfontViewController = [[MyFontViewController alloc] init];
         [self.navigationController pushViewController:myfontViewController animated:YES];
+    } else if(sender == self.createStuffBtn){
+        ChooseTemplateViewController *chooseTemplateVC = [[ChooseTemplateViewController alloc] init];
+        [self.navigationController pushViewController:chooseTemplateVC animated:YES];
     }
 }
 @end

@@ -32,6 +32,8 @@
 		C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */; };
 		C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977E1C915A00007B7725 /* WordListViewController.m */; };
 		C2BA97821C916748007B7725 /* SingleWordCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */; };
+		C2BA97861C929A0E007B7725 /* ChooseTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97851C929A0E007B7725 /* ChooseTemplateViewController.m */; };
+		C2BA97891C92C4CB007B7725 /* CreateStuffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97881C92C4CB007B7725 /* CreateStuffViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,10 @@
 		C2BA977E1C915A00007B7725 /* WordListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordListViewController.m; sourceTree = "<group>"; };
 		C2BA97801C916748007B7725 /* SingleWordCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleWordCollectionViewCell.h; sourceTree = "<group>"; };
 		C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleWordCollectionViewCell.m; sourceTree = "<group>"; };
+		C2BA97841C929A0E007B7725 /* ChooseTemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTemplateViewController.h; sourceTree = "<group>"; };
+		C2BA97851C929A0E007B7725 /* ChooseTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseTemplateViewController.m; sourceTree = "<group>"; };
+		C2BA97871C92C4CB007B7725 /* CreateStuffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateStuffViewController.h; sourceTree = "<group>"; };
+		C2BA97881C92C4CB007B7725 /* CreateStuffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateStuffViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				C20570791C89A2F10033D189 /* tool */,
+				C2BA97831C9299DE007B7725 /* createStuff */,
 				C20570881C8AD5820033D189 /* myfont */,
 				C20570751C899FAB0033D189 /* main */,
 				C20570711C899F220033D189 /* penName */,
@@ -228,6 +235,18 @@
 				C20570941C8BEF5A0033D189 /* tianzige@3x.png */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		C2BA97831C9299DE007B7725 /* createStuff */ = {
+			isa = PBXGroup;
+			children = (
+				C2BA97841C929A0E007B7725 /* ChooseTemplateViewController.h */,
+				C2BA97851C929A0E007B7725 /* ChooseTemplateViewController.m */,
+				C2BA97871C92C4CB007B7725 /* CreateStuffViewController.h */,
+				C2BA97881C92C4CB007B7725 /* CreateStuffViewController.m */,
+			);
+			name = createStuff;
+			path = tool/createStuff;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +383,8 @@
 				C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */,
 				C24A184B1C8D6AE300FEFF21 /* WriteWordViewController.m in Sources */,
 				C24A18541C8ECC8900FEFF21 /* InputNameView.m in Sources */,
+				C2BA97891C92C4CB007B7725 /* CreateStuffViewController.m in Sources */,
+				C2BA97861C929A0E007B7725 /* ChooseTemplateViewController.m in Sources */,
 				C24A185A1C901C2100FEFF21 /* AFBrushBoard.swift in Sources */,
 				C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */,
 				C20570801C89A6E20033D189 /* SealView.m in Sources */,
