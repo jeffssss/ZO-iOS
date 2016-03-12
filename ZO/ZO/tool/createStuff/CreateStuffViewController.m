@@ -34,12 +34,14 @@
     [self bottomToolbar];
     [self middleView];
     [self canvasView];
+    [self.view bringSubviewToFront:_bottomToolbar];
 }
 
 #pragma mark -getter
 -(CreateStuffToolbar *)bottomToolbar{
     if(nil == _bottomToolbar){
         _bottomToolbar = [[CreateStuffToolbar alloc] initWithFrame:CGRectMake(0, self.view.height-70, kScreenWidth, 70)];
+        
         [self.view addSubview:_bottomToolbar];
     }
     return _bottomToolbar;

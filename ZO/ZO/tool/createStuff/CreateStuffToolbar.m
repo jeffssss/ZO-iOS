@@ -16,6 +16,9 @@
 @property(nonatomic,strong) UIView          *secondView;//第二级View，放拓展选项
 
 @property(nonatomic,assign) BOOL            isSecondShown;//状态量，判断第二级是否出现
+
+@property(nonatomic,strong) UITableView     *secondContentTableView;//第二级的content为一个tableview
+
 @end
 
 @implementation CreateStuffToolbar
@@ -79,24 +82,64 @@
 
 -(void)onFirstBtnClick:(UIButton *)sender{
     NSInteger tag = sender.tag - 1000;
+
     switch (tag) {
         case 0:
             //点击 选择字形
+            [self changeSecondView:YES];
             break;
         case 1:
             //点击 改变颜色
+            [self changeSecondView:YES];
             break;
         case 2:
             //点击 改变大小
+            [self changeSecondView:YES];
             break;
         case 3:
             //点击 删除
             break;
         case 4:
             //点击 缩回secondView
+            [self changeSecondView:NO];
             break;
         default:
             break;
+    }
+}
+
+-(void)changeSecondView:(BOOL)willShown{
+    //改变self的frame
+    //firstView的frame也要改变
+    CGRect frame = self.frame;
+    CGRect firstFrame = self.firstView.frame;
+    if(willShown){
+        //需要将要show并且现在没有show才改变frame
+        if(!self.isSecondShown){
+            frame.origin.y -=70;
+            frame.size.height +=70;
+            
+            firstFrame.origin.y +=70;
+        }
+    } else {
+        if(self.isSecondShown){
+            frame.origin.y +=70;
+            frame.size.height -=70;
+            
+            firstFrame.origin.y -=70;
+        }
+    }
+    self.frame = frame;
+    self.firstView.frame = firstFrame;
+    
+    self.secondView.hidden = !willShown;
+    self.isSecondShown = willShown;
+    
+    //如果willshow,则↓应该显示出来
+    if(willShown){
+        [self.firstBtnArray[4] setHidden:NO];
+    } else {
+        [self.firstBtnArray[4] setHidden:YES];
     }
 }
 
