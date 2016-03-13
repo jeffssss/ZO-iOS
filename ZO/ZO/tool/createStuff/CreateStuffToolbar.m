@@ -8,7 +8,7 @@
 
 #import "CreateStuffToolbar.h"
 
-@interface CreateStuffToolbar ()
+@interface CreateStuffToolbar ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong) UIView          *firstView;//第一级view，基础选项
 @property(nonatomic,strong) NSMutableArray  *firstBtnArray;
