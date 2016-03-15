@@ -7,8 +7,10 @@
 //
 
 #import "CreateStuffToolbar.h"
+#import "FMDBHelper.h"
+#import "ZOPNGManager.h"
 
-@interface CreateStuffToolbar ()<UITableViewDataSource,UITableViewDelegate>
+@interface CreateStuffToolbar ()
 
 @property(nonatomic,strong) UIView          *firstView;//第一级view，基础选项
 @property(nonatomic,strong) NSMutableArray  *firstBtnArray;
@@ -17,7 +19,11 @@
 
 @property(nonatomic,assign) BOOL            isSecondShown;//状态量，判断第二级是否出现
 
-@property(nonatomic,strong) UITableView     *secondContentTableView;//第二级的content为一个tableview
+@property(nonatomic,strong) UIScrollView    *secondContentView;//第二级的content为一个tableview
+
+@property(nonatomic,assign) int             currentType;//当前选中的二级菜单
+
+@property(nonatomic,copy)   NSString        *selectedWordString;//当前选中的文字
 
 @end
 
@@ -70,6 +76,15 @@
     return _firstBtnArray;
 }
 
+-(UIScrollView *)secondContentView{
+    if(nil == _secondContentView){
+        _secondContentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.width, 70)];
+        //_secondContentView.delegate = self;
+        [self.secondView addSubview:_secondContentView];
+    }
+    return _secondContentView;
+}
+
 -(UIView *)secondView{
     if(nil == _secondView){
         _secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, 70)];
@@ -80,9 +95,10 @@
     return _secondView;
 }
 
+#pragma mark - SEL
 -(void)onFirstBtnClick:(UIButton *)sender{
     NSInteger tag = sender.tag - 1000;
-
+    self.currentType = (int)tag;
     switch (tag) {
         case 0:
             //点击 选择字形
@@ -138,10 +154,48 @@
     //如果willshow,则↓应该显示出来
     if(willShown){
         [self.firstBtnArray[4] setHidden:NO];
+        //willshow 则需要改变secondview内容
+        [self reloadSecondView];
     } else {
         [self.firstBtnArray[4] setHidden:YES];
     }
+    
 }
-#pragma mark - Tableview Delegate
+-(void)reloadSecondView{
+    [self.secondContentView removeAllSubviews];
+    if(self.currentType == 1){
+        //颜色
+        for(int i = 0 ; i < 3 ; i++){
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20 + 60 * i, 10, 50, 50)];
+            [button setTitle:@"红色" forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [self.secondContentView addSubview:button];
+        }
+    } else if (self.currentType ==2){
+        //大小
+        for(int i = 0 ; i < 2 ; i++){
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20 + 60 * i, 10, 50, 50)];
+            [button setTitle:@"变大" forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [self.secondContentView addSubview:button];
+        }
+    } else if(self.currentType == 0){
+        
+        //test
+        self.selectedWordString =@"一";
+        //字体
+        if(nil == self.selectedWordString || [self.selectedWordString isEqualToString:@""]){
+            return;
+        }
+        NSMutableArray *array = [[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where name = '%@' order by createtime desc",self.selectedWordString]];
+        for (int i = 0;  i < array.count ; i++) {
+            UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(20 + 60 * i, 10, 50, 50)];
+            imageview.image = [ZOPNGManager imageWithFilename:[(ZOFontModel *)array[i] filename]];
+            [self.secondContentView addSubview:imageview];
+        }
+    }
+}
+
+
 
 @end
