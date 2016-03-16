@@ -19,8 +19,12 @@ DEPENDENCIES:
   - KLCPopup (~> 1.0)
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh
-  - UIView+draggable
+  - UIView+draggable (from `~/git/UIView-draggable`)
   - YYCategories
+
+EXTERNAL SOURCES:
+  UIView+draggable:
+    :path: "~/git/UIView-draggable"
 
 SPEC CHECKSUMS:
   FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e

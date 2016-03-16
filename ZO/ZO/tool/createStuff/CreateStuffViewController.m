@@ -23,6 +23,9 @@
 @property(nonatomic,strong) UIView              *middleView;//中间的view，当二级Toolbar出现，middleView的高度变小
 @property(nonatomic,strong) UIView              *canvasView;//中间的画布，在middle中居中。
 @property(nonatomic,strong) NSMutableDictionary *wordImageDictionary;
+@property(nonatomic,strong) WordImageView       *currentImageView;//当前选中的view
+
+
 @property(nonatomic,strong) CreateStuffToolbar  *bottomToolbar;
 @property(nonatomic,strong) KLCPopup            *inputNamePopup;
 @end
@@ -135,9 +138,38 @@
     }
     wordImageView.userInteractionEnabled = YES;
     [wordImageView enableDragging];
+    //在拖动之前需要变成选中状态,但是如果拖动稍微快了一点，就不会调用startedBlock 所以要用endedblock
+//    wordImageView.draggingStartedBlock =  ^(id sender){
+//        [self chooseWordImageView: sender];
+//    };
+    wordImageView.draggingEndedBlock =  ^(id sender){
+        [self chooseWordImageView: sender];
+    };
+    
     
     [self.canvasView addSubview:wordImageView];
+    
+//    //给word添加tap识别器
+//    [wordImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+//        [self chooseWordImageView:(WordImageView *)[(UITapGestureRecognizer *)sender view]];
+//    }]];
+//    
+    //放到dictionary里
+    [self.wordImageDictionary setObject:wordImageView forKey:nameStr];
+    
     [self.inputNamePopup dismiss:YES];
 }
+
+-(void)chooseWordImageView:(WordImageView *)wordimageview{
+    //删除边框
+    self.currentImageView.layer.borderWidth = 0;
+    
+    //添加边框
+    self.currentImageView = wordimageview;
+    wordimageview.layer.borderWidth = 1.0f;
+    wordimageview.layer.borderColor = [UIColor redColor].CGColor;
+    [self.canvasView bringSubviewToFront:wordimageview];
+}
+
 
 @end
