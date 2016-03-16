@@ -21,7 +21,7 @@
     self.isFromZOModel = NO;
     [self removeAllSubviews];
     self.image = [[UIImage alloc]init];
-    _nameLabel = [[UILabel alloc] initWithFrame:self.frame];
+    _nameLabel = [[UILabel alloc] initWithFrame:self.bounds];
     _nameLabel.text = nameString;
     _nameLabel.font = [UIFont systemFontOfSize:self.width*0.8];
     _nameLabel.textAlignment = NSTextAlignmentCenter;

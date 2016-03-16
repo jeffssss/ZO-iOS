@@ -9,6 +9,7 @@
 #import "CreateStuffToolbar.h"
 #import "FMDBHelper.h"
 #import "ZOPNGManager.h"
+#import "WordImageView.h"
 
 @interface CreateStuffToolbar ()
 
@@ -22,8 +23,6 @@
 @property(nonatomic,strong) UIScrollView    *secondContentView;//第二级的content为一个tableview
 
 @property(nonatomic,assign) int             currentType;//当前选中的二级菜单
-
-@property(nonatomic,copy)   NSString        *selectedWordString;//当前选中的文字
 
 @end
 
@@ -187,13 +186,34 @@
         }
         NSMutableArray *array = [[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where name = '%@' order by createtime desc",self.selectedWordString]];
         for (int i = 0;  i < array.count ; i++) {
-            UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(20 + 60 * i, 10, 50, 50)];
-            imageview.image = [ZOPNGManager imageWithFilename:[(ZOFontModel *)array[i] filename]];
+            WordImageView *imageview = [[WordImageView alloc] initWithFrame:CGRectMake(20 + 60 * i, 10, 50, 50)];
+            imageview.model = array[i];
+            imageview.userInteractionEnabled = YES;
+            [imageview addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onWordImageViewClick:)]];
             [self.secondContentView addSubview:imageview];
         }
+        //添加系统字体
+        WordImageView *imageview = [[WordImageView alloc] initWithFrame:CGRectMake(20 + 60 * array.count, 10, 50, 50)];
+        imageview.nameString = self.selectedWordString;
+        imageview.userInteractionEnabled = YES;
+        [imageview addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onWordImageViewClick:)]];
+        [self.secondContentView addSubview:imageview];
+        
     }
 }
 
+-(void)setSelectedWordString:(NSString *)selectedWordString{
+    _selectedWordString = selectedWordString;
+    [self reloadSecondView];
+}
 
+#pragma mark - SEL
+-(void)onWordImageViewClick:(UITapGestureRecognizer *)sender{
+    WordImageView *imageview = (WordImageView *)sender.view;
+    if([self.delegate respondsToSelector:@selector(fontImageViewClick:)]){
+        [self.delegate fontImageViewClick:imageview];
+    }
+    
+}
 
 @end

@@ -14,7 +14,7 @@
 #import "ZOPNGManager.h"
 #import "WordImageView.h"
 
-@interface CreateStuffViewController ()<UITextFieldDelegate,InputNameDelegate>
+@interface CreateStuffViewController ()<UITextFieldDelegate,InputNameDelegate,CreateStuffToolbarDelegate>
 
 @property(nonatomic,strong) UIButton            *addTextBtn;
 @property(nonatomic,strong) UIButton            *addBackgroundBtn;//TODO:之后提供可选的背景图
@@ -55,7 +55,7 @@
 -(CreateStuffToolbar *)bottomToolbar{
     if(nil == _bottomToolbar){
         _bottomToolbar = [[CreateStuffToolbar alloc] initWithFrame:CGRectMake(0, self.view.height-70, kScreenWidth, 70)];
-        
+        _bottomToolbar.delegate = self;
         [self.view addSubview:_bottomToolbar];
     }
     return _bottomToolbar;
@@ -122,6 +122,17 @@
     self.inputNamePopup.contentView.frame = frame;
     [UIView commitAnimations];
 }
+
+#pragma mark - CreateStuffToolbarDelegate
+-(void)fontImageViewClick:(id)sender{
+    if([(WordImageView *)sender isFromZOModel]){
+        self.currentImageView.model = [(WordImageView *)sender model];
+    } else {
+        self.currentImageView.nameString = [(WordImageView *)sender nameString];
+    }
+    
+}
+
 #pragma mark - InputNameView Delegate
 -(void)onInputNameOKBtnClick:(NSString *)nameStr{
     if([nameStr length]!=1){
@@ -169,6 +180,9 @@
     wordimageview.layer.borderWidth = 1.0f;
     wordimageview.layer.borderColor = [UIColor redColor].CGColor;
     [self.canvasView bringSubviewToFront:wordimageview];
+    
+    self.bottomToolbar.selectedWordString = wordimageview.nameString;
+    
 }
 
 
