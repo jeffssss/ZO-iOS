@@ -12,6 +12,7 @@
 #import "InputNameView.h"
 #import "FMDBHelper.h"
 #import "ZOPNGManager.h"
+#import "WordImageView.h"
 
 @interface CreateStuffViewController ()<UITextFieldDelegate,InputNameDelegate>
 
@@ -21,7 +22,7 @@
 
 @property(nonatomic,strong) UIView              *middleView;//中间的view，当二级Toolbar出现，middleView的高度变小
 @property(nonatomic,strong) UIView              *canvasView;//中间的画布，在middle中居中。
-
+@property(nonatomic,strong) NSMutableDictionary *wordImageDictionary;
 @property(nonatomic,strong) CreateStuffToolbar  *bottomToolbar;
 @property(nonatomic,strong) KLCPopup            *inputNamePopup;
 @end
@@ -42,6 +43,8 @@
     [self canvasView];
     [self.view bringSubviewToFront:_bottomToolbar];
     
+    //初始化wordImageDictionary
+    self.wordImageDictionary = [[NSMutableDictionary alloc] init];
     
 }
 
@@ -122,17 +125,13 @@
         return;
     }
     NSMutableArray *result = [[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where name = '%@' order by createtime desc limit 1",nameStr]];
-    UIImageView *wordImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    WordImageView *wordImageView = [[WordImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     wordImageView.backgroundColor = [UIColor greenColor];
     if(result.count>0){
         //有结果
-        wordImageView.image = [ZOPNGManager imageWithFilename:[(ZOFontModel *)result[0] filename]];
+        wordImageView.model = result[0];
     } else {
-        UILabel *label = [[UILabel alloc] initWithFrame:wordImageView.frame];
-        label.text = nameStr;
-        label.font = [UIFont systemFontOfSize:label.width*0.8];
-        label.textAlignment = NSTextAlignmentCenter;
-        [wordImageView addSubview:label];
+        wordImageView.nameString = nameStr;
     }
     wordImageView.userInteractionEnabled = YES;
     [wordImageView enableDragging];

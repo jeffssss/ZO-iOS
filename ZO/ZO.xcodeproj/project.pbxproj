@@ -34,6 +34,7 @@
 		C2BA97861C929A0E007B7725 /* ChooseTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97851C929A0E007B7725 /* ChooseTemplateViewController.m */; };
 		C2BA97891C92C4CB007B7725 /* CreateStuffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97881C92C4CB007B7725 /* CreateStuffViewController.m */; };
 		C2BA978C1C93E839007B7725 /* CreateStuffToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA978B1C93E839007B7725 /* CreateStuffToolbar.m */; };
+		C2BA978F1C993860007B7725 /* WordImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA978E1C993860007B7725 /* WordImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,8 @@
 		C2BA97881C92C4CB007B7725 /* CreateStuffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateStuffViewController.m; sourceTree = "<group>"; };
 		C2BA978A1C93E839007B7725 /* CreateStuffToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateStuffToolbar.h; sourceTree = "<group>"; };
 		C2BA978B1C93E839007B7725 /* CreateStuffToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateStuffToolbar.m; sourceTree = "<group>"; };
+		C2BA978D1C993860007B7725 /* WordImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordImageView.h; sourceTree = "<group>"; };
+		C2BA978E1C993860007B7725 /* WordImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +247,8 @@
 				C2BA97851C929A0E007B7725 /* ChooseTemplateViewController.m */,
 				C2BA97871C92C4CB007B7725 /* CreateStuffViewController.h */,
 				C2BA97881C92C4CB007B7725 /* CreateStuffViewController.m */,
+				C2BA978D1C993860007B7725 /* WordImageView.h */,
+				C2BA978E1C993860007B7725 /* WordImageView.m */,
 			);
 			name = createStuff;
 			path = tool/createStuff;
@@ -382,6 +387,7 @@
 				C20570741C899F220033D189 /* PennameViewController.m in Sources */,
 				C2BA978C1C93E839007B7725 /* CreateStuffToolbar.m in Sources */,
 				C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */,
+				C2BA978F1C993860007B7725 /* WordImageView.m in Sources */,
 				C24A184B1C8D6AE300FEFF21 /* WriteWordViewController.m in Sources */,
 				C24A18541C8ECC8900FEFF21 /* InputNameView.m in Sources */,
 				C2BA97891C92C4CB007B7725 /* CreateStuffViewController.m in Sources */,
