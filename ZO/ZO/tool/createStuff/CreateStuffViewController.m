@@ -132,7 +132,9 @@
     }
     
 }
-
+-(void)colorImageViewClick:(UIColor *)color{
+    self.currentImageView.imageColor = color;
+}
 #pragma mark - InputNameView Delegate
 -(void)onInputNameOKBtnClick:(NSString *)nameStr{
     if([nameStr length]!=1){

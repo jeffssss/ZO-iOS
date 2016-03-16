@@ -11,7 +11,7 @@
 @protocol CreateStuffToolbarDelegate <NSObject>
 
 -(void)fontImageViewClick:(id)sender;
-
+-(void)colorImageViewClick:(UIColor *)color;
 @end
 
 

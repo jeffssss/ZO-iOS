@@ -28,6 +28,7 @@
 		C24A184B1C8D6AE300FEFF21 /* WriteWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A184A1C8D6AE300FEFF21 /* WriteWordViewController.m */; };
 		C24A18541C8ECC8900FEFF21 /* InputNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18531C8ECC8900FEFF21 /* InputNameView.m */; };
 		C24A185A1C901C2100FEFF21 /* AFBrushBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */; };
+		C254F7BB1C996384009E1441 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7BA1C996384009E1441 /* UIImage+Tint.m */; };
 		C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */; };
 		C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977E1C915A00007B7725 /* WordListViewController.m */; };
 		C2BA97821C916748007B7725 /* SingleWordCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */; };
@@ -77,6 +78,8 @@
 		C24A18531C8ECC8900FEFF21 /* InputNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputNameView.m; sourceTree = "<group>"; };
 		C24A18581C901C2000FEFF21 /* ZO-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZO-Bridging-Header.h"; sourceTree = "<group>"; };
 		C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFBrushBoard.swift; sourceTree = "<group>"; };
+		C254F7B91C996384009E1441 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
+		C254F7BA1C996384009E1441 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		C2BA977A1C9142E8007B7725 /* SingleWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleWordViewController.h; sourceTree = "<group>"; };
 		C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleWordViewController.m; sourceTree = "<group>"; };
 		C2BA977D1C915A00007B7725 /* WordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordListViewController.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 		C20570791C89A2F10033D189 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				C254F7B91C996384009E1441 /* UIImage+Tint.h */,
+				C254F7BA1C996384009E1441 /* UIImage+Tint.m */,
 				C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */,
 				C205707E1C89A6E20033D189 /* SealView.h */,
 				C205707F1C89A6E20033D189 /* SealView.m */,
@@ -394,6 +399,7 @@
 				C2BA97861C929A0E007B7725 /* ChooseTemplateViewController.m in Sources */,
 				C24A185A1C901C2100FEFF21 /* AFBrushBoard.swift in Sources */,
 				C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */,
+				C254F7BB1C996384009E1441 /* UIImage+Tint.m in Sources */,
 				C20570801C89A6E20033D189 /* SealView.m in Sources */,
 				C205705C1C89965E0033D189 /* AppDelegate.m in Sources */,
 				C20570781C899FC50033D189 /* MainViewController.m in Sources */,

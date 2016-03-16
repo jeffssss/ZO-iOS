@@ -24,6 +24,8 @@
 
 @property(nonatomic,assign) int             currentType;//当前选中的二级菜单
 
+@property(nonatomic,strong) NSArray         *colorArray;
+
 @end
 
 @implementation CreateStuffToolbar
@@ -93,7 +95,12 @@
     }
     return _secondView;
 }
-
+-(NSArray *)colorArray{
+    if(nil == _colorArray){
+        _colorArray = @[[UIColor redColor],[UIColor greenColor],[UIColor blueColor]];
+    }
+    return _colorArray;
+}
 #pragma mark - SEL
 -(void)onFirstBtnClick:(UIButton *)sender{
     NSInteger tag = sender.tag - 1000;
@@ -164,11 +171,13 @@
     [self.secondContentView removeAllSubviews];
     if(self.currentType == 1){
         //颜色
-        for(int i = 0 ; i < 3 ; i++){
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20 + 60 * i, 10, 50, 50)];
-            [button setTitle:@"红色" forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-            [self.secondContentView addSubview:button];
+        for(int i = 0 ; i < self.colorArray.count ; i++){
+            UIImageView *colorView = [[UIImageView alloc] initWithFrame:CGRectMake(20 + 60 * i, 10, 50, 50)];
+            colorView.image = [UIImage imageWithColor:self.colorArray[i]];
+            colorView.userInteractionEnabled = YES;
+            colorView.tag = 1000+i;
+            [colorView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onColorImageViewClick:)]];
+            [self.secondContentView addSubview:colorView];
         }
     } else if (self.currentType ==2){
         //大小
@@ -215,5 +224,11 @@
     }
     
 }
+-(void)onColorImageViewClick:(UITapGestureRecognizer *)sender{
+    if([self.delegate respondsToSelector:@selector(colorImageViewClick:)]){
+        [self.delegate colorImageViewClick:self.colorArray[sender.view.tag - 1000]];
+    }
+}
+
 
 @end
