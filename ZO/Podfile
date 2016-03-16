@@ -8,3 +8,4 @@ pod "YYCategories"
 pod 'FMDB'
 pod 'iCarousel'
 pod 'FXBlurView', '~> 1.6.4'
+pod 'UIView+draggable'

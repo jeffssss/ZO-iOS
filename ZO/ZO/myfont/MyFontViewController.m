@@ -7,7 +7,6 @@
 //
 
 #import "MyFontViewController.h"
-#import "FontThumbnailView.h"
 #import "FMDBHelper.h"
 #import "InputNameView.h"
 #import "WriteWordViewController.h"

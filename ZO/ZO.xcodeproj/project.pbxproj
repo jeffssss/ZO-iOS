@@ -19,7 +19,6 @@
 		C20570801C89A6E20033D189 /* SealView.m in Sources */ = {isa = PBXBuildFile; fileRef = C205707F1C89A6E20033D189 /* SealView.m */; };
 		C20570871C89EC9B0033D189 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20570861C89EC9A0033D189 /* Reveal.framework */; };
 		C205708B1C8AD5AE0033D189 /* MyFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C205708A1C8AD5AE0033D189 /* MyFontViewController.m */; };
-		C20570911C8AE4010033D189 /* FontThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C20570901C8AE4010033D189 /* FontThumbnailView.m */; };
 		C20570951C8BEF5A0033D189 /* tianzige@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570931C8BEF5A0033D189 /* tianzige@2x.png */; };
 		C20570961C8BEF5A0033D189 /* tianzige@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570941C8BEF5A0033D189 /* tianzige@3x.png */; };
 		C20570991C8BF95D0033D189 /* 汉仪篆书繁.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */; };
@@ -63,8 +62,6 @@
 		C20570861C89EC9A0033D189 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		C20570891C8AD5AE0033D189 /* MyFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFontViewController.h; sourceTree = "<group>"; };
 		C205708A1C8AD5AE0033D189 /* MyFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFontViewController.m; sourceTree = "<group>"; };
-		C205708F1C8AE4010033D189 /* FontThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontThumbnailView.h; path = ../myfont/FontThumbnailView.h; sourceTree = "<group>"; };
-		C20570901C8AE4010033D189 /* FontThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontThumbnailView.m; path = ../myfont/FontThumbnailView.m; sourceTree = "<group>"; };
 		C20570931C8BEF5A0033D189 /* tianzige@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianzige@2x.png"; sourceTree = "<group>"; };
 		C20570941C8BEF5A0033D189 /* tianzige@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianzige@3x.png"; sourceTree = "<group>"; };
 		C24A18401C8C0BB400FEFF21 /* FMDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBHelper.h; sourceTree = "<group>"; };
@@ -197,8 +194,6 @@
 				C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */,
 				C205707E1C89A6E20033D189 /* SealView.h */,
 				C205707F1C89A6E20033D189 /* SealView.m */,
-				C205708F1C8AE4010033D189 /* FontThumbnailView.h */,
-				C20570901C8AE4010033D189 /* FontThumbnailView.m */,
 				C24A18401C8C0BB400FEFF21 /* FMDBHelper.h */,
 				C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */,
 				C24A18461C8D5B2100FEFF21 /* ZOPNGManager.h */,
@@ -397,7 +392,6 @@
 				C205705C1C89965E0033D189 /* AppDelegate.m in Sources */,
 				C20570781C899FC50033D189 /* MainViewController.m in Sources */,
 				C2BA97821C916748007B7725 /* SingleWordCollectionViewCell.m in Sources */,
-				C20570911C8AE4010033D189 /* FontThumbnailView.m in Sources */,
 				C20570591C89965E0033D189 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

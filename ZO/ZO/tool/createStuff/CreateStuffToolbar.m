@@ -181,8 +181,6 @@
         }
     } else if(self.currentType == 0){
         
-        //test
-        self.selectedWordString =@"一";
         //字体
         if(nil == self.selectedWordString || [self.selectedWordString isEqualToString:@""]){
             return;
