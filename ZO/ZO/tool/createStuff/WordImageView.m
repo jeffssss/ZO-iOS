@@ -65,4 +65,20 @@
         self.image = [[ZOPNGManager imageWithFilename:self.model.filename] imageWithTintColor:color];
     }
 }
+
+-(void)changeSize:(int)point{
+    //大小变化，center不变
+    CGRect frame = self.frame;
+    frame.origin.x -= point/2.0;
+    if(frame.origin.x < 0)  frame.origin.x = 0;
+    frame.origin.y -= point/2.0;
+    if(frame.origin.y < 0)  frame.origin.y = 0;
+    frame.size.height += point;
+    frame.size.width  += point;
+    self.frame = frame;
+    if(!self.isFromZOModel){
+        self.nameLabel.frame = self.bounds;
+        self.nameLabel.font = [UIFont systemFontOfSize:self.width*0.8];
+    }
+}
 @end

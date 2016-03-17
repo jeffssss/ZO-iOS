@@ -135,6 +135,22 @@
 -(void)colorImageViewClick:(UIColor *)color{
     self.currentImageView.imageColor = color;
 }
+
+-(void)sizeBtnClick:(int)method{
+    switch (method) {
+        case 1:
+            //小
+            [self.currentImageView changeSize:-5];
+            break;
+        case 2:
+            //大
+            [self.currentImageView changeSize:5];
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - InputNameView Delegate
 -(void)onInputNameOKBtnClick:(NSString *)nameStr{
     if([nameStr length]!=1){
@@ -162,11 +178,11 @@
     
     [self.canvasView addSubview:wordImageView];
     
-//    //给word添加tap识别器
-//    [wordImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
-//        [self chooseWordImageView:(WordImageView *)[(UITapGestureRecognizer *)sender view]];
-//    }]];
-//    
+    //给word添加tap识别器
+    [wordImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+        [self chooseWordImageView:(WordImageView *)[(UITapGestureRecognizer *)sender view]];
+    }]];
+    
     //放到dictionary里
     [self.wordImageDictionary setObject:wordImageView forKey:nameStr];
     

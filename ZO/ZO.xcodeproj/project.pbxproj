@@ -247,9 +247,9 @@
 			isa = PBXGroup;
 			children = (
 				C2BA97841C929A0E007B7725 /* ChooseTemplateViewController.h */,
+				C2BA97851C929A0E007B7725 /* ChooseTemplateViewController.m */,
 				C2BA978A1C93E839007B7725 /* CreateStuffToolbar.h */,
 				C2BA978B1C93E839007B7725 /* CreateStuffToolbar.m */,
-				C2BA97851C929A0E007B7725 /* ChooseTemplateViewController.m */,
 				C2BA97871C92C4CB007B7725 /* CreateStuffViewController.h */,
 				C2BA97881C92C4CB007B7725 /* CreateStuffViewController.m */,
 				C2BA978D1C993860007B7725 /* WordImageView.h */,

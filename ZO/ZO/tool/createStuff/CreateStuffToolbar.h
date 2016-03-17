@@ -12,6 +12,8 @@
 
 -(void)fontImageViewClick:(id)sender;
 -(void)colorImageViewClick:(UIColor *)color;
+-(void)sizeBtnClick:(int)method;
+
 @end
 
 

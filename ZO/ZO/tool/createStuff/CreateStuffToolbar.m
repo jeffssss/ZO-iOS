@@ -181,12 +181,19 @@
         }
     } else if (self.currentType ==2){
         //大小
-        for(int i = 0 ; i < 2 ; i++){
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20 + 60 * i, 10, 50, 50)];
-            [button setTitle:@"变大" forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-            [self.secondContentView addSubview:button];
-        }
+        //变大
+        UIButton *button_big = [[UIButton alloc] initWithFrame:CGRectMake(20, 10, 50, 50)];
+        [button_big setTitle:@"大" forState:UIControlStateNormal];
+        [button_big setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [button_big setTarget:self action:@selector(onSizeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.secondContentView addSubview:button_big];
+        //变小
+        UIButton *button_small = [[UIButton alloc] initWithFrame:CGRectMake(20 + 60, 10, 50, 50)];
+        [button_small setTitle:@"小" forState:UIControlStateNormal];
+        [button_small setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [button_small setTarget:self action:@selector(onSizeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.secondContentView addSubview:button_small];
+        
     } else if(self.currentType == 0){
         
         //字体
@@ -229,6 +236,14 @@
         [self.delegate colorImageViewClick:self.colorArray[sender.view.tag - 1000]];
     }
 }
-
+-(void)onSizeBtnClick:(UIButton *)sender{
+    if([self.delegate respondsToSelector:@selector(sizeBtnClick:)]){
+        if([sender.titleLabel.text isEqualToString:@"小"]){
+            [self.delegate sizeBtnClick:1];
+        } else {
+            [self.delegate sizeBtnClick:2];
+        }
+    }
+}
 
 @end

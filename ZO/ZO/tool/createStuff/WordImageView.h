@@ -16,4 +16,5 @@
 @property(nonatomic,strong) ZOFontModel *model;
 @property(nonatomic,strong) UIColor     *imageColor;
 
+-(void)changeSize:(int)point;
 @end
