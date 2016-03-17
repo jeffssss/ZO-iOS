@@ -31,6 +31,7 @@
 		C254F7BB1C996384009E1441 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7BA1C996384009E1441 /* UIImage+Tint.m */; };
 		C254F7BE1C9ABB6B009E1441 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7BD1C9ABB6B009E1441 /* PreviewViewController.m */; };
 		C254F7C11C9ABD2A009E1441 /* SaveSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7C01C9ABD2A009E1441 /* SaveSuccessViewController.m */; };
+		C254F7C21C9AD6FD009E1441 /* seal_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570811C89A6F60033D189 /* seal_background.png */; };
 		C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */; };
 		C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977E1C915A00007B7725 /* WordListViewController.m */; };
 		C2BA97821C916748007B7725 /* SingleWordCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */; };
@@ -330,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C254F7C21C9AD6FD009E1441 /* seal_background.png in Resources */,
 				C20570991C8BF95D0033D189 /* 汉仪篆书繁.ttf in Resources */,
 				C20570671C89965E0033D189 /* LaunchScreen.storyboard in Resources */,
 				C20570641C89965E0033D189 /* Assets.xcassets in Resources */,
