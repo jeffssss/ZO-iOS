@@ -29,6 +29,8 @@
 		C24A18541C8ECC8900FEFF21 /* InputNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18531C8ECC8900FEFF21 /* InputNameView.m */; };
 		C24A185A1C901C2100FEFF21 /* AFBrushBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */; };
 		C254F7BB1C996384009E1441 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7BA1C996384009E1441 /* UIImage+Tint.m */; };
+		C254F7BE1C9ABB6B009E1441 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7BD1C9ABB6B009E1441 /* PreviewViewController.m */; };
+		C254F7C11C9ABD2A009E1441 /* SaveSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7C01C9ABD2A009E1441 /* SaveSuccessViewController.m */; };
 		C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */; };
 		C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977E1C915A00007B7725 /* WordListViewController.m */; };
 		C2BA97821C916748007B7725 /* SingleWordCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */; };
@@ -80,6 +82,10 @@
 		C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFBrushBoard.swift; sourceTree = "<group>"; };
 		C254F7B91C996384009E1441 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		C254F7BA1C996384009E1441 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
+		C254F7BC1C9ABB6B009E1441 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
+		C254F7BD1C9ABB6B009E1441 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
+		C254F7BF1C9ABD2A009E1441 /* SaveSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveSuccessViewController.h; sourceTree = "<group>"; };
+		C254F7C01C9ABD2A009E1441 /* SaveSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveSuccessViewController.m; sourceTree = "<group>"; };
 		C2BA977A1C9142E8007B7725 /* SingleWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleWordViewController.h; sourceTree = "<group>"; };
 		C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleWordViewController.m; sourceTree = "<group>"; };
 		C2BA977D1C915A00007B7725 /* WordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordListViewController.h; sourceTree = "<group>"; };
@@ -254,6 +260,10 @@
 				C2BA97881C92C4CB007B7725 /* CreateStuffViewController.m */,
 				C2BA978D1C993860007B7725 /* WordImageView.h */,
 				C2BA978E1C993860007B7725 /* WordImageView.m */,
+				C254F7BC1C9ABB6B009E1441 /* PreviewViewController.h */,
+				C254F7BD1C9ABB6B009E1441 /* PreviewViewController.m */,
+				C254F7BF1C9ABD2A009E1441 /* SaveSuccessViewController.h */,
+				C254F7C01C9ABD2A009E1441 /* SaveSuccessViewController.m */,
 			);
 			name = createStuff;
 			path = tool/createStuff;
@@ -399,6 +409,8 @@
 				C2BA97861C929A0E007B7725 /* ChooseTemplateViewController.m in Sources */,
 				C24A185A1C901C2100FEFF21 /* AFBrushBoard.swift in Sources */,
 				C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */,
+				C254F7BE1C9ABB6B009E1441 /* PreviewViewController.m in Sources */,
+				C254F7C11C9ABD2A009E1441 /* SaveSuccessViewController.m in Sources */,
 				C254F7BB1C996384009E1441 /* UIImage+Tint.m in Sources */,
 				C20570801C89A6E20033D189 /* SealView.m in Sources */,
 				C205705C1C89965E0033D189 /* AppDelegate.m in Sources */,

@@ -13,7 +13,7 @@
 #import "FMDBHelper.h"
 #import "ZOPNGManager.h"
 #import "WordImageView.h"
-
+#import "PreviewViewController.h"
 @interface CreateStuffViewController ()<UITextFieldDelegate,InputNameDelegate,CreateStuffToolbarDelegate>
 
 @property(nonatomic,strong) UIButton            *addTextBtn;
@@ -38,8 +38,9 @@
     
     self.title = @"编辑";
     //tabnavbar
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddTextBtnClick:)];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    UIBarButtonItem *rightButtonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddTextBtnClick:)];
+    UIBarButtonItem *rightButtonDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onFinishBtnClick:)];
+    self.navigationItem.rightBarButtonItems = @[rightButtonAdd,rightButtonDone];
     
     [self bottomToolbar];
     [self middleView];
@@ -76,6 +77,10 @@
         _canvasView = [[UIView alloc] initWithFrame:CGRectMake(0, (self.middleView.height - kScreenWidth*4/3.0)/2.0, kScreenWidth, kScreenWidth*4/3.0)];
         _canvasView.backgroundColor = [UIColor whiteColor];
         [self.middleView addSubview:_canvasView];
+        UIImageView *seal = [[UIImageView alloc] initWithFrame:CGRectMake(10, _canvasView.bottom - 110, 100, 100)];
+        seal.image = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"sealimage"]];;
+        seal.contentMode = UIViewContentModeScaleAspectFit;
+        [_canvasView addSubview:seal];
     }
     return _canvasView;
 }
@@ -96,6 +101,17 @@
 #pragma mark - SEL 
 -(void)onAddTextBtnClick:(id)sender{
     [self.inputNamePopup show];
+}
+
+-(void)onFinishBtnClick:(id)sender{
+    
+    //完成之前先把选中的红框框去掉
+    self.currentImageView.layer.borderWidth = 0;
+    
+    PreviewViewController *previewVC = [[PreviewViewController alloc] init];
+    previewVC.previewImage = [self.canvasView snapshotImage];
+    [self.navigationController pushViewController:previewVC animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -162,7 +178,7 @@
     }
     NSMutableArray *result = [[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where name = '%@' order by createtime desc limit 1",nameStr]];
     WordImageView *wordImageView = [[WordImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    wordImageView.backgroundColor = [UIColor greenColor];
+//    wordImageView.backgroundColor = [UIColor greenColor];
     if(result.count>0){
         //有结果
         wordImageView.model = result[0];
@@ -171,6 +187,7 @@
     }
     wordImageView.userInteractionEnabled = YES;
     [wordImageView enableDragging];
+    wordImageView.cagingArea = self.canvasView.bounds;
     //在拖动之前需要变成选中状态,但是如果拖动稍微快了一点，就不会调用startedBlock 所以要用endedblock
 //    wordImageView.draggingStartedBlock =  ^(id sender){
 //        [self chooseWordImageView: sender];

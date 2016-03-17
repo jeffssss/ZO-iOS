@@ -35,7 +35,7 @@
 #pragma mark - getter
 -(UIButton *)clearBtn{
     if(nil == _clearBtn){
-        _clearBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 50)];
+        _clearBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, 50)];
         [_clearBtn setTitle:@"clear" forState:UIControlStateNormal];
         [_clearBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_clearBtn setBackgroundColor:[UIColor grayColor]];

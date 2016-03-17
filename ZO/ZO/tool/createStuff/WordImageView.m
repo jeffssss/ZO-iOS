@@ -69,10 +69,15 @@
 -(void)changeSize:(int)point{
     //大小变化，center不变
     CGRect frame = self.frame;
+    frame.size.height += point;
+    frame.size.width  += point;
+    
     frame.origin.x -= point/2.0;
     if(frame.origin.x < 0)  frame.origin.x = 0;
+    if(frame.origin.x + frame.size.width >=kScreenWidth) frame.origin.x = kScreenWidth - frame.size.width;
     frame.origin.y -= point/2.0;
     if(frame.origin.y < 0)  frame.origin.y = 0;
+    if(frame.origin.y + frame.size.height>=kScreenWidth*4/3.0)frame.origin.y = kScreenWidth*4/3.0 - frame.size.height;
     frame.size.height += point;
     frame.size.width  += point;
     self.frame = frame;
