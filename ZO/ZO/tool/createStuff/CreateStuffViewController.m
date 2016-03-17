@@ -150,6 +150,10 @@
             break;
     }
 }
+-(void)deleteBtnClick{
+    [self.currentImageView removeFromSuperview];
+    self.currentImageView = nil;
+}
 
 #pragma mark - InputNameView Delegate
 -(void)onInputNameOKBtnClick:(NSString *)nameStr{

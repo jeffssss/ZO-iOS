@@ -120,6 +120,9 @@
             break;
         case 3:
             //点击 删除
+            if([self.delegate respondsToSelector:@selector(deleteBtnClick)]){
+                [self.delegate deleteBtnClick];
+            }
             break;
         case 4:
             //点击 缩回secondView
