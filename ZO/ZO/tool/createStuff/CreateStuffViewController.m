@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%d",self.type);
+    //NSLog(@"%d",self.type);
     
     self.title = @"编辑";
     //tabnavbar
