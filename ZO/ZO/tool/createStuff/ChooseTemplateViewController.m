@@ -50,7 +50,7 @@
 }
 -(NSArray *)coverImageArray{
     if(nil == _coverImageArray){
-        _coverImageArray = @[[UIColor redColor],[UIColor greenColor],[UIColor blueColor]];
+        _coverImageArray = @[@"pure_text",@"image_top",@"text_in_image"];
     }
     return _coverImageArray;
 }
@@ -84,7 +84,7 @@
         view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 300.0f)];
         //view.contentMode = UIViewContentModeBottom;
     }
-    view.backgroundColor = self.coverImageArray[index];
+    [(UIImageView*)view setImage:[UIImage imageNamed:self.coverImageArray[index]]] ;
     return view;
 }
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel{
