@@ -38,7 +38,7 @@
 -(iCarousel *)carousel{
     if(nil == _carousel){
         _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64 - 80)];
-        _carousel.backgroundColor = [UIColor yellowColor];
+        _carousel.backgroundColor = UIColorHex(0x4F4F4F);
         _carousel.type = iCarouselTypeCylinder;
         _carousel.vertical = NO;
         _carousel.delegate = self;
@@ -82,6 +82,7 @@
     if (view == nil)
     {
         view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 300.0f)];
+        view.layer.shouldRasterize = YES;//防止锯齿
         //view.contentMode = UIViewContentModeBottom;
     }
     [(UIImageView*)view setImage:[UIImage imageNamed:self.coverImageArray[index]]] ;
