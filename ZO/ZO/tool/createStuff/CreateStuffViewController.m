@@ -77,6 +77,10 @@
         _canvasView = [[UIView alloc] initWithFrame:CGRectMake(0, (self.middleView.height - kScreenWidth*4/3.0)/2.0, kScreenWidth, kScreenWidth*4/3.0)];
         _canvasView.backgroundColor = [UIColor whiteColor];
         [self.middleView addSubview:_canvasView];
+        //添加背景图片
+        UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:_canvasView.bounds];
+        backgroundImage.image = [UIImage imageNamed:@"create_stuff_background"];
+        [_canvasView addSubview:backgroundImage];
 //        UIImageView *seal = [[UIImageView alloc] initWithFrame:CGRectMake(10, _canvasView.bottom - 110, 100, 100)];
 //        seal.image = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"sealimage"]];;
 //        seal.contentMode = UIViewContentModeScaleAspectFit;
