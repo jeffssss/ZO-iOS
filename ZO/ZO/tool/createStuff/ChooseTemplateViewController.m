@@ -9,8 +9,9 @@
 #import "ChooseTemplateViewController.h"
 #import <iCarousel/iCarousel.h>
 #import "CreateStuffViewController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
-@interface ChooseTemplateViewController ()<iCarouselDataSource, iCarouselDelegate>
+@interface ChooseTemplateViewController ()<iCarouselDataSource, iCarouselDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property(nonatomic,strong) iCarousel       *carousel;
 
@@ -131,15 +132,76 @@
     }
 }
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
-    CreateStuffViewController *createVC = [[CreateStuffViewController alloc] init];
-    createVC.type = (int)index;
-    [self.navigationController pushViewController:createVC animated:YES];
+    [self onChooseBtnClick:nil];
+}
+#pragma UIImagePickerControllerDelegate
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
+//    NSMutableDictionary * dict= [NSMutableDictionary dictionaryWithDictionary:editingInfo];
+//    
+//    [dict setObject:image forKey:@"UIImagePickerControllerEditedImage"];
+//    
+//    //直接调用处理函数
+//    [self imagePickerController:picker didFinishPickingMediaWithInfo:dict];
+//}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    // 判断获取类型：图片
+    if ([mediaType isEqualToString:( NSString *)kUTTypeImage]){
+        UIImage *theImage = nil;
+        if ([picker allowsEditing]){
+            //获取用户编辑之后的图像
+            theImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        } else {
+            // 照片的元数据参数
+            theImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+            
+        }
+        //跳转到新页面
+        CreateStuffViewController *createVC = [[CreateStuffViewController alloc] init];
+        createVC.type = (int)self.carousel.currentItemIndex;
+        createVC.photo = theImage;
+        [self.navigationController pushViewController:createVC animated:YES];
+        
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
+
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - SEL
 -(void)onChooseBtnClick:(id)sender{
-    CreateStuffViewController *createVC = [[CreateStuffViewController alloc] init];
-    createVC.type = (int)self.carousel.currentItemIndex;
-    [self.navigationController pushViewController:createVC animated:YES];
+    int type = (int)self.carousel.currentItemIndex;
+    
+    if (type == 0) {
+        //纯文字type
+        CreateStuffViewController *createVC = [[CreateStuffViewController alloc] init];
+        createVC.type = type;
+        [self.navigationController pushViewController:createVC animated:YES];
+    } else {
+        //需要先选择照片
+        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            imagePicker.allowsEditing = NO;
+            imagePicker.delegate = self;
+            NSMutableArray *mediaTypes = [[NSMutableArray alloc] init];
+            [mediaTypes addObject:( NSString *)kUTTypeImage];
+            [imagePicker setMediaTypes:mediaTypes];
+            dispatch_async_on_main_queue(^{
+                [self presentViewController: imagePicker animated: YES completion:^{
+                    //关菊花
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                }];
+            });
+        });
+        
+        
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

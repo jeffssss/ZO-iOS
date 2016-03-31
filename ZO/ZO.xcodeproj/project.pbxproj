@@ -48,6 +48,7 @@
 		C2C6540E1CABABC5003B989E /* text_in_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C6540C1CABABC5003B989E /* text_in_image@3x.png */; };
 		C2C654111CABAEAB003B989E /* create_stuff_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C6540F1CABAEAB003B989E /* create_stuff_background@2x.png */; };
 		C2C654121CABAEAB003B989E /* create_stuff_background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C654101CABAEAB003B989E /* create_stuff_background@3x.png */; };
+		C2C654151CABBCCB003B989E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C654131CABBC70003B989E /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		C2C6540C1CABABC5003B989E /* text_in_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text_in_image@3x.png"; sourceTree = "<group>"; };
 		C2C6540F1CABAEAB003B989E /* create_stuff_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create_stuff_background@2x.png"; sourceTree = "<group>"; };
 		C2C654101CABAEAB003B989E /* create_stuff_background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create_stuff_background@3x.png"; sourceTree = "<group>"; };
+		C2C654131CABBC70003B989E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C654151CABBCCB003B989E /* MobileCoreServices.framework in Frameworks */,
 				4E458F21FBB26791064ECC06 /* libPods.a in Frameworks */,
 				C20570871C89EC9B0033D189 /* Reveal.framework in Frameworks */,
 			);
@@ -146,6 +149,7 @@
 		7C9C061A720DB98AE37B5FDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2C654131CABBC70003B989E /* MobileCoreServices.framework */,
 				C20570861C89EC9A0033D189 /* Reveal.framework */,
 				1CD6B7B586AC9CCA5B08E770 /* libPods.a */,
 			);

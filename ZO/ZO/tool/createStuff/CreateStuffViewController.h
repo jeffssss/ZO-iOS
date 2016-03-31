@@ -12,4 +12,5 @@
 
 @property(nonatomic,assign) int         type;
 
+@property(nonatomic,strong) UIImage     *photo;
 @end

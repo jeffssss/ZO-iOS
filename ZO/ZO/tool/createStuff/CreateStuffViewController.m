@@ -14,7 +14,7 @@
 #import "ZOPNGManager.h"
 #import "WordImageView.h"
 #import "PreviewViewController.h"
-@interface CreateStuffViewController ()<UITextFieldDelegate,InputNameDelegate,CreateStuffToolbarDelegate>
+@interface CreateStuffViewController ()<UITextFieldDelegate,InputNameDelegate,CreateStuffToolbarDelegate,UIGestureRecognizerDelegate>
 
 @property(nonatomic,strong) UIButton            *addTextBtn;
 @property(nonatomic,strong) UIButton            *addBackgroundBtn;//TODO:之后提供可选的背景图
@@ -22,19 +22,23 @@
 
 @property(nonatomic,strong) UIView              *middleView;//中间的view，当二级Toolbar出现，middleView的高度变小
 @property(nonatomic,strong) UIView              *canvasView;//中间的画布，在middle中居中。
+@property(nonatomic,strong) UIImageView         *photoImageView;//配图，type = 1和2的时候有
 @property(nonatomic,strong) NSMutableDictionary *wordImageDictionary;
 @property(nonatomic,strong) WordImageView       *currentImageView;//当前选中的view
 
 
 @property(nonatomic,strong) CreateStuffToolbar  *bottomToolbar;
 @property(nonatomic,strong) KLCPopup            *inputNamePopup;
+
+@property(nonatomic,assign) CGFloat             lastScale;//photo上次缩放的值
+
 @end
 
 @implementation CreateStuffViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //NSLog(@"%d",self.type);
+    NSLog(@"%d",self.type);
     
     self.title = @"编辑";
     //tabnavbar
@@ -50,6 +54,12 @@
     //初始化wordImageDictionary
     self.wordImageDictionary = [[NSMutableDictionary alloc] init];
     
+    //判断type，如果是1和2，需要image；
+    if(self.type != 0){
+        [self photoImageView];
+    }
+    //初始lastScale为1.0；
+    self.lastScale = 1.0f;
 }
 
 #pragma mark -getter
@@ -88,6 +98,60 @@
     }
     return _canvasView;
 }
+
+-(UIImageView *)photoImageView{
+    if(nil == _photoImageView){
+        _photoImageView = [[UIImageView alloc] init];
+        CGFloat photoWidth = self.photo.size.width;
+        CGFloat photoHeight = self.photo.size.height;
+        
+        if(self.type == 1){
+            // type ==1 图在上方
+            // 把图放在canvas的上方居中。
+            if(photoWidth > photoHeight){
+                CGFloat newHeight = photoHeight * (self.canvasView.width - 10*2) / photoWidth;
+                _photoImageView.frame = CGRectMake(10, 10, self.canvasView.width - 10*2, newHeight);
+            } else {
+                CGFloat newWidth =  photoWidth *(self.canvasView.width - 10*2)/photoHeight;
+                _photoImageView.frame = CGRectMake((self.canvasView.width - newWidth)/2.0f, 10, newWidth, self.canvasView.width - 10*2);
+            }
+            _photoImageView.image = self.photo;
+            [self.canvasView addSubview:_photoImageView];
+            //允许用户拖动图片
+            _photoImageView.userInteractionEnabled = YES;
+            [_photoImageView enableDragging];
+            //_photoImageView.cagingArea = self.canvasView.bounds;
+            //允许用户缩放图片
+            UIPinchGestureRecognizer * pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
+            pinch.delegate = self;
+            [_photoImageView addGestureRecognizer:pinch];
+        } else {
+            //type == 2,以图为背景
+            if(photoWidth / photoHeight >= 0.75){
+                CGFloat newHeight = photoHeight * self.canvasView.width / photoWidth;
+                CGRect thisFrame = self.canvasView.frame;
+                thisFrame.origin.y += (self.canvasView.height - newHeight)/2.0;
+                thisFrame.size.height = newHeight;
+                
+                self.canvasView.frame = thisFrame;
+                _photoImageView.frame = self.canvasView.bounds;
+            } else {
+                CGFloat newWidth =  photoWidth *self.canvasView.width /photoHeight;
+                CGRect thisFrame = self.canvasView.frame;
+                thisFrame.origin.x += (self.canvasView.width - newWidth)/2.0;
+                thisFrame.size.width = newWidth;
+                
+                self.canvasView.frame = thisFrame;
+                _photoImageView.frame = self.canvasView.bounds;
+            }
+            
+            _photoImageView.image = self.photo;
+            [self.canvasView addSubview:_photoImageView];
+        }
+    }
+    return _photoImageView;
+}
+
 -(KLCPopup *)inputNamePopup{
     if(nil == _inputNamePopup){
         InputNameView *inputNameView = [[InputNameView alloc] initWithFrame:CGRectMake(kScreenWidth * 0.1, 0, kScreenWidth * 0.8, 120)];
@@ -118,6 +182,24 @@
 
 }
 
+-(void)handlePinch:(UIPinchGestureRecognizer *)sender{
+    if([(UIPinchGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+        
+        self.lastScale = 1.0;
+        return;
+    }
+    
+    CGFloat scale = 1.0 - (self.lastScale - [(UIPinchGestureRecognizer*)sender scale]);
+    
+    CGAffineTransform currentTransform = [(UIPinchGestureRecognizer*)sender view].transform;
+    CGAffineTransform newTransform = CGAffineTransformScale(currentTransform, scale, scale);
+    
+    [[(UIPinchGestureRecognizer*)sender view] setTransform:newTransform];
+    sender.view.transform = newTransform;
+    
+    self.lastScale = [(UIPinchGestureRecognizer*)sender scale];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
