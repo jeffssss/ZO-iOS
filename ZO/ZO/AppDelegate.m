@@ -9,8 +9,10 @@
 #import "AppDelegate.h"
 #import "PennameViewController.h"
 #import "MainViewController.h"
+#import "SplashViewController.h"
+#import "BezierPathAnimationView.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<SplashViewControllerDelegate>
 
 @end
 
@@ -18,10 +20,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    NSArray *familyNames = [UIFont familyNames];
+    for(NSString *familyName in familyNames)
+    {
+        NSLog(@"%@", familyName);
+        NSArray *fontNames = [UIFont fontNamesForFamilyName:familyName];
+        for(NSString *fontName in fontNames)
+        {
+            NSLog(@"\t%@", fontName);
+        }  
+    }
     
-    [self checkPenname];
-    
+    //performe splash
+    [self performSplash];
+
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -34,6 +47,47 @@
         self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[PennameViewController alloc] init]];
     }
 //    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[PennameViewController alloc] init]];
+}
+
+-(void)performSplash{
+    SplashViewController *splashVC = [[SplashViewController alloc] init];
+    splashVC.delegate = self;
+    splashVC.delay = 3.0f;//从VC开始到退出的时间
+    splashVC.performanceBlock = ^(UIView *stageView){
+        //加入动画
+        BezierPathAnimationView *bview = [[BezierPathAnimationView alloc] initWithFrame:CGRectMake(20, 150, kScreenWidth - 20*2 , 80)];
+        bview.displayString = @"写我所写";
+        bview.duration = 2.0f;
+        [stageView addSubview:bview];
+        [bview beginAnimate];
+    };
+    //获取启动页图片
+    NSArray* imagesDict = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"UILaunchImages"];
+    for (NSDictionary* dict in imagesDict)
+    {
+        CGSize imageSize = CGSizeFromString(dict[@"UILaunchImageSize"]);
+        
+        if (CGSizeEqualToSize(imageSize, self.window.bounds.size) && [@"Portrait" isEqualToString:dict[@"UILaunchImageOrientation"]])
+        {
+            splashVC.backgroundImage = [UIImage imageNamed:dict[@"UILaunchImageName"]];
+        }
+    }
+    self.window.rootViewController = splashVC;
+}
+
+- (void)splashDidPerform:(SplashViewController *)splashScreen{
+    
+    //延迟退出
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)( splashScreen.delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"退出");
+        //启动动画完成 显示状态栏
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        //正常启动
+        [self checkPenname];
+    });
+    
+
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

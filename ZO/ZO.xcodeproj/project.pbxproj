@@ -49,6 +49,9 @@
 		C2C654111CABAEAB003B989E /* create_stuff_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C6540F1CABAEAB003B989E /* create_stuff_background@2x.png */; };
 		C2C654121CABAEAB003B989E /* create_stuff_background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C654101CABAEAB003B989E /* create_stuff_background@3x.png */; };
 		C2C654151CABBCCB003B989E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C654131CABBC70003B989E /* MobileCoreServices.framework */; };
+		C2D7664C1CAF97A300C5BDDA /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D7664B1CAF97A300C5BDDA /* SplashViewController.m */; };
+		C2D7664F1CAFBBFB00C5BDDA /* BezierPathAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D7664E1CAFBBFB00C5BDDA /* BezierPathAnimationView.m */; };
+		C2D766551CAFD25600C5BDDA /* 罗西钢笔行楷.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D766541CAFD24900C5BDDA /* 罗西钢笔行楷.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +124,11 @@
 		C2C6540F1CABAEAB003B989E /* create_stuff_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create_stuff_background@2x.png"; sourceTree = "<group>"; };
 		C2C654101CABAEAB003B989E /* create_stuff_background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create_stuff_background@3x.png"; sourceTree = "<group>"; };
 		C2C654131CABBC70003B989E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C2D7664A1CAF97A300C5BDDA /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		C2D7664B1CAF97A300C5BDDA /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		C2D7664D1CAFBBFB00C5BDDA /* BezierPathAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierPathAnimationView.h; sourceTree = "<group>"; };
+		C2D7664E1CAFBBFB00C5BDDA /* BezierPathAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierPathAnimationView.m; sourceTree = "<group>"; };
+		C2D766541CAFD24900C5BDDA /* 罗西钢笔行楷.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "罗西钢笔行楷.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +227,8 @@
 			children = (
 				C20570761C899FC50033D189 /* MainViewController.h */,
 				C20570771C899FC50033D189 /* MainViewController.m */,
+				C2D7664A1CAF97A300C5BDDA /* SplashViewController.h */,
+				C2D7664B1CAF97A300C5BDDA /* SplashViewController.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -236,6 +246,8 @@
 				C24A18461C8D5B2100FEFF21 /* ZOPNGManager.h */,
 				C24A18471C8D5B2100FEFF21 /* ZOPNGManager.m */,
 				C24A18581C901C2000FEFF21 /* ZO-Bridging-Header.h */,
+				C2D7664D1CAFBBFB00C5BDDA /* BezierPathAnimationView.h */,
+				C2D7664E1CAFBBFB00C5BDDA /* BezierPathAnimationView.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -273,6 +285,7 @@
 				C2C654031CABA85E003B989E /* pure_text@2x.png */,
 				C2C654041CABA85E003B989E /* pure_text@3x.png */,
 				C254F7C31C9C1B1F009E1441 /* picture_placeholder.png */,
+				C2D766541CAFD24900C5BDDA /* 罗西钢笔行楷.ttf */,
 				C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */,
 				C20570811C89A6F60033D189 /* seal_background.png */,
 				C20570931C8BEF5A0033D189 /* tianzige@2x.png */,
@@ -362,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D766551CAFD25600C5BDDA /* 罗西钢笔行楷.ttf in Resources */,
 				C254F7C41C9C1B1F009E1441 /* picture_placeholder.png in Resources */,
 				C2C6540E1CABABC5003B989E /* text_in_image@3x.png in Resources */,
 				C254F7C21C9AD6FD009E1441 /* seal_background.png in Resources */,
@@ -447,8 +461,10 @@
 				C2BA978F1C993860007B7725 /* WordImageView.m in Sources */,
 				C24A184B1C8D6AE300FEFF21 /* WriteWordViewController.m in Sources */,
 				C24A18541C8ECC8900FEFF21 /* InputNameView.m in Sources */,
+				C2D7664C1CAF97A300C5BDDA /* SplashViewController.m in Sources */,
 				C2BA97891C92C4CB007B7725 /* CreateStuffViewController.m in Sources */,
 				C2BA97861C929A0E007B7725 /* ChooseTemplateViewController.m in Sources */,
+				C2D7664F1CAFBBFB00C5BDDA /* BezierPathAnimationView.m in Sources */,
 				C24A185A1C901C2100FEFF21 /* AFBrushBoard.swift in Sources */,
 				C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */,
 				C254F7BE1C9ABB6B009E1441 /* PreviewViewController.m in Sources */,
