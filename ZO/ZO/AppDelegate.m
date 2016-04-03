@@ -52,12 +52,12 @@
 -(void)performSplash{
     SplashViewController *splashVC = [[SplashViewController alloc] init];
     splashVC.delegate = self;
-    splashVC.delay = 3.0f;//从VC开始到退出的时间
+    splashVC.delay = 2.0f;//从VC开始到退出的时间
     splashVC.performanceBlock = ^(UIView *stageView){
         //加入动画
         BezierPathAnimationView *bview = [[BezierPathAnimationView alloc] initWithFrame:CGRectMake(20, 150, kScreenWidth - 20*2 , 80)];
         bview.displayString = @"写我所写";
-        bview.duration = 2.0f;
+        bview.duration = 1.0f;
         [stageView addSubview:bview];
         [bview beginAnimate];
     };
