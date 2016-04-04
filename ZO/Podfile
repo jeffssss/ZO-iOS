@@ -8,4 +8,4 @@ pod "YYCategories"
 pod 'FMDB'
 pod 'iCarousel'
 pod 'FXBlurView', '~> 1.6.4'
-pod 'UIView+draggable' , :path=>'~/git/UIView-draggable'
+pod 'UIView+draggable' , '~> 1.1.0'

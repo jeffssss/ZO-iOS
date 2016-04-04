@@ -7,7 +7,7 @@ PODS:
   - KLCPopup (1.0)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.0)
-  - UIView+draggable (1.0.3)
+  - UIView+draggable (1.1.0)
   - YYCategories (1.0.1):
     - YYCategories/no-arc (= 1.0.1)
   - YYCategories/no-arc (1.0.1)
@@ -19,12 +19,8 @@ DEPENDENCIES:
   - KLCPopup (~> 1.0)
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh
-  - UIView+draggable (from `~/git/UIView-draggable`)
+  - UIView+draggable (~> 1.1.0)
   - YYCategories
-
-EXTERNAL SOURCES:
-  UIView+draggable:
-    :path: "~/git/UIView-draggable"
 
 SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
@@ -33,7 +29,7 @@ SPEC CHECKSUMS:
   KLCPopup: 76c5a19227977f1e53d85236f9ef42257c168d98
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
-  UIView+draggable: ba71460cefb4d4d04da09f78e878e8239b1b6aeb
+  UIView+draggable: ddfbeb6bdfdeba63d9ccf32dc9be2b66cc589717
   YYCategories: ebd2d2d473de67a29fbfb83e812c350966cc256f
 
 COCOAPODS: 0.39.0
