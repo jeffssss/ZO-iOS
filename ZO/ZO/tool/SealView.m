@@ -11,11 +11,18 @@
 @interface SealView()
 
 @property(nonatomic,strong) UIImageView *backgourndImageView;
-
+@property(nonatomic,assign) CGRect      originalFrame;
 @end
 
 @implementation SealView
 
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    if(self = [super initWithFrame:frame]){
+        self.originalFrame = frame;
+    }
+    return self;
+}
 
 - (void)drawRect:(CGRect)rect{
     
@@ -25,20 +32,19 @@
     //先设置以及背景的frame
     CGFloat backgroundPadding_x = 2;
     CGFloat backgroundPadding_y = 4;
-    CGFloat height = 100;
-    CGFloat width = 100;
+    CGFloat height = self.originalFrame.size.height;
+    CGFloat width = self.originalFrame.size.width;
     switch (pointArray.count) {
         case 1:
-            backgroundPadding_x = 2;
-            backgroundPadding_y = 4;
-            height = 40;
-            width = 40;
+            backgroundPadding_x = width/8.0;
+            backgroundPadding_y = height/8.0;
+            font = [UIFont fontWithName:@"HYj1gf" size:width*3/4];
             break;
         case 2:
-            backgroundPadding_x = 2;
-            backgroundPadding_y = 8;
-            height = 80;
-            width = 40;
+            width = width/2.0;
+            backgroundPadding_x = width/8.0;
+            backgroundPadding_y = height/8.0;
+            font = [UIFont fontWithName:@"HYj1gf" size:width*3/4];
             break;
         case 3:
             backgroundPadding_x = 2;
@@ -64,28 +70,24 @@
             height = 120;
             width = 70;
             break;
-        default:
-            backgroundPadding_x = 2;
-            backgroundPadding_y = 4;
-            height = 40;
-            width = 40;
+        default:;
     }
     
-    self.backgourndImageView.frame = CGRectMake(8-backgroundPadding_x, 10 - backgroundPadding_y, 2*backgroundPadding_x + width, 2*backgroundPadding_y +height);
+    self.backgourndImageView.frame = CGRectMake(0, 0, width, height);
     
     self.backgourndImageView.image = [UIImage imageNamed:@"seal_background.png"];//这个不用重复赋值
     
     //再绘出每一个字
     [self.nameString enumerateSubstringsInRange:NSMakeRange(0, self.nameString.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-        CGPoint basepoint = CGPointMake(8, 10);
+        
         CGPoint thispoint = CGPointFromString(pointArray[substringRange.location]);
         //如果是英文，需要往右平移一段距离
         const char    *cString = [substring UTF8String];
         if(strlen(cString) < 3){
             //不是中文
-            thispoint = CGPointMake(thispoint.x + 12, thispoint.y);
+            thispoint = CGPointMake(thispoint.x + width/4.0, thispoint.y);
         }
-        CGPoint realpoint = CGPointMake(basepoint.x + thispoint.x, basepoint.y + thispoint.y);
+        CGPoint realpoint = CGPointMake(backgroundPadding_x + thispoint.x, backgroundPadding_y + thispoint.y);
         [substring drawAtPoint:realpoint withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor colorWithRed:220.0/255 green:30.0/255 blue:15.0/255 alpha:1]}];//,NSBackgroundColorAttributeName:[UIColor greenColor]
     }];
 }
@@ -100,22 +102,24 @@
 
 -(NSArray*)pointArrayWithCount:(NSInteger)count andPaddingX:(CGFloat)paddingX paddingY:(CGFloat)paddingY{
     NSMutableArray *resultArray = [[NSMutableArray alloc] initWithCapacity:count];
+    CGFloat unit_x = self.originalFrame.size.width/count * 3.0 / 4.0;
+    CGFloat unit_y = self.originalFrame.size.height/(count % 3) * 3.0 / 4.0;
     switch (count) {
         case 1:
             [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, 0))];
             break;
         case 2:
             [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, 0))];
-            [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, 40+paddingY))];
+            [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, unit_y +paddingY))];
             break;
         case 3:
             [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, 0))];
-            [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, 40+paddingY))];
-            [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, 80+2*paddingY))];
+            [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, unit_y + paddingY))];
+            [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, unit_y + 2*paddingY))];
             break;
         case 4:
-            [resultArray addObject:NSStringFromCGPoint(CGPointMake(40+paddingX, 0))];
-            [resultArray addObject:NSStringFromCGPoint(CGPointMake(40+paddingX, 40+paddingY))];
+            [resultArray addObject:NSStringFromCGPoint(CGPointMake(unit_x+paddingX, 0))];
+            [resultArray addObject:NSStringFromCGPoint(CGPointMake(unit_x+paddingX, unit_y+paddingY))];
             [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, 0))];
             [resultArray addObject:NSStringFromCGPoint(CGPointMake(0, 40+paddingY))];
             break;
@@ -141,38 +145,28 @@
 }
 
 -(NSString *)sizeThatAdjust{
-    CGFloat height = 40;
-    CGFloat width = 40;
+    CGFloat height = self.originalFrame.size.height;
+    CGFloat width = self.originalFrame.size.width;
     switch (self.nameString.length) {
         case 1:
-            height = 40;
-            width = 40;
             break;
         case 2:
-            height = 80;
-            width = 40;
+            width = width/2.0;
             break;
         case 3:
-            height = 120;
-            width = 40;
+            width = width/3.0;
             break;
         case 4:
-            height = 80;
-            width = 70;
+            width = width * 7.0 / 8.0;
             break;
         case 5:
-            height = 120;
-            width = 70;
-            break;
         case 6:
             height = 120;
-            width = 70;
+            width = width * 7.0 / 12.0;;
             break;
-        default:
-            height = 40;
-            width = 40;
+        default:;
     }
-    return NSStringFromCGSize(CGSizeMake(width + 8*2, height + 10*2));
+    return NSStringFromCGSize(CGSizeMake(width, height));
 }
 
 -(void)adjustFrame{

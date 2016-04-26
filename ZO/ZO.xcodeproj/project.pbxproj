@@ -57,6 +57,8 @@
 		C2D7664C1CAF97A300C5BDDA /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D7664B1CAF97A300C5BDDA /* SplashViewController.m */; };
 		C2D7664F1CAFBBFB00C5BDDA /* BezierPathAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D7664E1CAFBBFB00C5BDDA /* BezierPathAnimationView.m */; };
 		C2D766551CAFD25600C5BDDA /* 罗西钢笔行楷.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D766541CAFD24900C5BDDA /* 罗西钢笔行楷.ttf */; };
+		C2ED03141CCB5DAD00212DCC /* brush_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ED03121CCB5DAD00212DCC /* brush_line@2x.png */; };
+		C2ED03151CCB5DAD00212DCC /* brush_line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ED03131CCB5DAD00212DCC /* brush_line@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +142,8 @@
 		C2D7664D1CAFBBFB00C5BDDA /* BezierPathAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierPathAnimationView.h; sourceTree = "<group>"; };
 		C2D7664E1CAFBBFB00C5BDDA /* BezierPathAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierPathAnimationView.m; sourceTree = "<group>"; };
 		C2D766541CAFD24900C5BDDA /* 罗西钢笔行楷.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "罗西钢笔行楷.ttf"; sourceTree = "<group>"; };
+		C2ED03121CCB5DAD00212DCC /* brush_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brush_line@2x.png"; sourceTree = "<group>"; };
+		C2ED03131CCB5DAD00212DCC /* brush_line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brush_line@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +293,8 @@
 		C20570921C8BEF410033D189 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C2ED03121CCB5DAD00212DCC /* brush_line@2x.png */,
+				C2ED03131CCB5DAD00212DCC /* brush_line@3x.png */,
 				C27E5D6D1CC7CC3F00DDAD85 /* screen_background@2x.png */,
 				C27E5D6E1CC7CC3F00DDAD85 /* screen_background@3x.png */,
 				C27E5D691CC7C90600DDAD85 /* zo@2x.png */,
@@ -403,6 +409,7 @@
 				C20570671C89965E0033D189 /* LaunchScreen.storyboard in Resources */,
 				C27E5D6B1CC7C90600DDAD85 /* zo@2x.png in Resources */,
 				C2C654121CABAEAB003B989E /* create_stuff_background@3x.png in Resources */,
+				C2ED03141CCB5DAD00212DCC /* brush_line@2x.png in Resources */,
 				C2C654061CABA85E003B989E /* pure_text@3x.png in Resources */,
 				C27E5D701CC7CC3F00DDAD85 /* screen_background@3x.png in Resources */,
 				C2C6540D1CABABC5003B989E /* text_in_image@2x.png in Resources */,
@@ -411,6 +418,7 @@
 				C2C6540A1CABAABE003B989E /* image_top@3x.png in Resources */,
 				C20570951C8BEF5A0033D189 /* tianzige@2x.png in Resources */,
 				C20570961C8BEF5A0033D189 /* tianzige@3x.png in Resources */,
+				C2ED03151CCB5DAD00212DCC /* brush_line@3x.png in Resources */,
 				C20570621C89965E0033D189 /* Main.storyboard in Resources */,
 				C2C654091CABAABE003B989E /* image_top@2x.png in Resources */,
 			);

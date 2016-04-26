@@ -20,17 +20,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSArray *familyNames = [UIFont familyNames];
-    for(NSString *familyName in familyNames)
-    {
-        NSLog(@"%@", familyName);
-        NSArray *fontNames = [UIFont fontNamesForFamilyName:familyName];
-        for(NSString *fontName in fontNames)
-        {
-            NSLog(@"\t%@", fontName);
-        }  
-    }
-    
     //performe splash
     [self performSplash];
 
