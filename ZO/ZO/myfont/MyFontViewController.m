@@ -12,8 +12,11 @@
 #import "WriteWordViewController.h"
 #import "SingleWordViewController.h"
 #import "WordListViewController.h"
+#import "ZONavigationBarView.h"
 
 @interface MyFontViewController ()<InputNameDelegate,UITextFieldDelegate>
+
+@property(nonatomic,strong) ZONavigationBarView *navigationBarView;
 
 @property(nonatomic,strong) UIImageView *backgroundImageView;
 
@@ -41,17 +44,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"字体养成";
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-//    FontThumbnailView *thisView = [[FontThumbnailView alloc] initWithFrame:CGRectMake(0, 70, 50, 50)];
-//    thisView.wordNameString = @"哦";
-//    thisView.backgroundColor = [UIColor redColor];
-    
-//    [self.view addSubview:thisView];
+    self.title = @"我的字库";
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen_background"]];
     //获取数据源
-    
-    
     [self initLayout];
     
 }
@@ -62,6 +57,17 @@
 }
 
 #pragma mark - getter
+-(ZONavigationBarView *)navigationBarView{
+    if(nil == _navigationBarView){
+        _navigationBarView = [[ZONavigationBarView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 120)];
+        _navigationBarView.titleLabel.text = self.title;
+        [_navigationBarView.backBtn setTarget:self action:@selector(onBackBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:_navigationBarView];
+        
+    }
+    return _navigationBarView;
+}
+
 -(UIButton *)writeWordBtn{
     if(nil == _writeWordBtn){
         _writeWordBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.secondClassContentView.bottom +120, kScreenWidth, 30)];
@@ -93,28 +99,34 @@
 -(void)refreshDatasourceArray{
     self.datasourceArray = [[NSMutableArray alloc] init];
     for(int i = 1 ; i < 4 ; i ++){
-        [self.datasourceArray addObject:[[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where type = %d order by createtime desc limit 5",i]]];//TODO:未测试;不知道能不能倒序查询正确
+        [self.datasourceArray addObject:[[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where type = %d order by createtime desc limit 5",i]]];
     }
     //TEST:
     NSLog(@"Datasource:\nType=1数据有%lu,Type=2数据有%lu,Type=3数据有%lu",(unsigned long)[self.datasourceArray[0] count],(unsigned long)[self.datasourceArray[1] count],(unsigned long)[self.datasourceArray[2] count]);
 }
 
 -(void)initLayout{
-    self.firstClassWordTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 70, kScreenWidth, 40)];
+    self.firstClassWordTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, kScreenWidth, 40)];
     [self.firstClassWordTitleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
         WordListViewController *wordlistVC = [[WordListViewController alloc] init];
         wordlistVC.type = 1;
         [self.navigationController pushViewController:wordlistVC animated:YES];
     }]];
     [self.view addSubview:self.firstClassWordTitleView];
-    self.firstClassCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.firstClassWordTitleView.width, self.firstClassWordTitleView.height)];
+    self.firstClassCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 251, self.firstClassWordTitleView.height)];
+    self.firstClassCountLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"scroll"]];
+    self.firstClassCountLabel.font = [UIFont fontWithName:@"-" size:20];
+    self.firstClassCountLabel.textAlignment = NSTextAlignmentCenter;
     [self.firstClassWordTitleView addSubview:self.firstClassCountLabel];
     self.firstClassContentView = [[UIView alloc] initWithFrame:CGRectMake(0, self.firstClassWordTitleView.bottom, self.firstClassWordTitleView.width, 60)];
     [self.view addSubview:self.firstClassContentView];
     
     self.secondClassWordTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, self.firstClassContentView.bottom, kScreenWidth, 40)];
     [self.view addSubview:self.secondClassWordTitleView];
-    self.secondClassCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.secondClassWordTitleView.width, self.secondClassWordTitleView.height)];
+    self.secondClassCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, self.firstClassCountLabel.width, self.secondClassWordTitleView.height)];
+    self.secondClassCountLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"scroll"]];
+    self.secondClassCountLabel.font = [UIFont fontWithName:@"-" size:20];
+    self.secondClassCountLabel.textAlignment = NSTextAlignmentCenter;
     [self.secondClassWordTitleView addSubview:self.secondClassCountLabel];
     self.secondClassContentView = [[UIView alloc] initWithFrame:CGRectMake(0, self.secondClassWordTitleView.bottom, self.secondClassWordTitleView.width, 60)];
     [self.view addSubview:self.secondClassContentView];
@@ -183,6 +195,10 @@
 }
 
 #pragma mark - SEL
+-(void)onBackBtnClick:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 -(void)onWriteBtnClick:(id)sender{
     [self.inputNamePopup show];
 }

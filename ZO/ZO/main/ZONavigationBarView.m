@@ -18,6 +18,8 @@
     if(self = [super initWithFrame:frame]){
         _backBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, 5, frame.size.height-5*2, frame.size.height-5*2)];
         [_backBtn setImage:[UIImage imageNamed:@"zo"] forState:UIControlStateNormal];
+        [_backBtn setImage:[UIImage imageNamed:@"zo"] forState:UIControlStateDisabled];
+        [_backBtn setImage:[UIImage imageNamed:@"icon_selected"] forState:UIControlStateHighlighted];
         [self addSubview:_backBtn];
         
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(_backBtn.right + 5, 0, frame.size.width - _backBtn.right - 5, frame.size.height)];

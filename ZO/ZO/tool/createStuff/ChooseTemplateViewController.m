@@ -10,8 +10,11 @@
 #import <iCarousel/iCarousel.h>
 #import "CreateStuffViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "ZONavigationBarView.h"
 
 @interface ChooseTemplateViewController ()<iCarouselDataSource, iCarouselDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+
+@property(nonatomic,strong) ZONavigationBarView *navigationBarView;
 
 @property(nonatomic,strong) iCarousel       *carousel;
 
@@ -28,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"选择模板";
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen_background"]];
     [self carousel];
     // Do any additional setup after loading the view.
     [self pageControl];
@@ -36,10 +39,22 @@
 }
 
 #pragma mark - getter
+-(ZONavigationBarView *)navigationBarView{
+    if(nil == _navigationBarView){
+        _navigationBarView = [[ZONavigationBarView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 120)];
+        _navigationBarView.titleLabel.text = self.title;
+        [_navigationBarView.backBtn setTarget:self action:@selector(onBackBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:_navigationBarView];
+        
+    }
+    return _navigationBarView;
+}
+
 -(iCarousel *)carousel{
     if(nil == _carousel){
-        _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64 - 80)];
-        _carousel.backgroundColor = UIColorHex(0x4F4F4F);
+        _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, kScreenWidth, kScreenHeight - self.navigationBarView.bottom - 110)];
+//        _carousel.backgroundColor = UIColorHex(0x4F4F4F);
+        _carousel.backgroundColor = [UIColor clearColor];
         _carousel.type = iCarouselTypeCylinder;
         _carousel.vertical = NO;
         _carousel.delegate = self;
@@ -57,18 +72,23 @@
 }
 -(UIPageControl *)pageControl{
     if(nil == _pageControl){
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((self.carousel.width - 100)/2.0, self.carousel.height - 50, 100, 30)];
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((self.carousel.width - 100)/2.0, self.carousel.bottom + 5, 100, 30)];
         _pageControl.numberOfPages = self.coverImageArray.count;
         _pageControl.currentPage = 0;
-        [self.carousel addSubview:_pageControl];
+        [self.view addSubview:_pageControl];
     }
     return _pageControl;
 }
 -(UIButton *)chooseBtn{
     if(nil == _chooseBtn){
-        _chooseBtn = [[UIButton alloc] initWithFrame:CGRectMake((self.carousel.width - 150)/2.0, self.carousel.bottom, 150, 60)];
+        _chooseBtn = [[UIButton alloc] initWithFrame:CGRectMake((self.carousel.width - 150)/2.0, self.pageControl.bottom + 5, 150, 30)];
+        _chooseBtn.titleLabel.font = [UIFont fontWithName:@"-" size:25];
+        _chooseBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [_chooseBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _chooseBtn.layer.borderColor = [UIColor blackColor].CGColor;
+        _chooseBtn.layer.borderWidth = 2.0;
+        _chooseBtn.layer.cornerRadius = _chooseBtn.height/2.0;
         [_chooseBtn setTitle:@"就选它了" forState:UIControlStateNormal];
-        [_chooseBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         [_chooseBtn setTarget:self action:@selector(onChooseBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_chooseBtn];
     }
@@ -170,6 +190,10 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - SEL
+-(void)onBackBtnClick:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 -(void)onChooseBtnClick:(id)sender{
     int type = (int)self.carousel.currentItemIndex;
     
