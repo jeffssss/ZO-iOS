@@ -140,8 +140,10 @@
 
 -(void)refreshlayout{
 
-    self.firstClassCountLabel.text = @"一级汉字（0/3577）";//TODO:这个数字需要查数据库
-    self.secondClassCountLabel.text = @"二级汉字（0/3577）";
+    NSMutableDictionary *dict = [self getFontCountGroupCount];
+    self.firstClassCountLabel.text = [NSString stringWithFormat:@"一级汉字（%@/3755）",dict[@"1"]] ;//TODO:这个数字需要查数据库
+    self.secondClassCountLabel.text = [NSString stringWithFormat:@"二级汉字（%@/3008）",dict[@"2"]];
+    //其他类别的暂时没做UI
     
     //先清空subviews
     [self.firstClassContentView removeAllSubviews];
@@ -167,7 +169,11 @@
             }]];
         }
     } else {
-        //TODO:本来应该显示无的，现在先不写
+        //显示无记录
+        UILabel *noresultLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, 200, 50)];
+        noresultLabel.text = @"没有记录，快去写字吧~";
+        noresultLabel.font = [UIFont fontWithName:@"-" size:20];
+        [self.firstClassContentView addSubview:noresultLabel];
     }
     //二级
     if([self.datasourceArray[1] count] > 0 ){
@@ -189,6 +195,10 @@
         }
     } else {
         //TODO:本来应该显示无的，现在先不写
+        UILabel *noresultLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, 200, 50)];
+        noresultLabel.text = @"没有记录，快去写字吧~";
+        noresultLabel.font = [UIFont fontWithName:@"-" size:20];
+        [self.secondClassContentView addSubview:noresultLabel];
     }
 }
 
@@ -234,6 +244,26 @@
     frame.origin.y = frame.origin.y + 100;
     self.inputNamePopup.contentView.frame = frame;
     [UIView commitAnimations];
+}
+
+#pragma mark - private
+//查询数据库中一级汉字和二级汉字的个数
+-(NSMutableDictionary *)getFontCountGroupCount{
+    NSMutableDictionary *countDict = [[NSMutableDictionary alloc] initWithCapacity:3];
+    NSString *query = [NSString stringWithFormat:@"select type,COUNT(*) as 'count' from zofont group by type"];
+    NSMutableArray *result = [[FMDBHelper sharedManager] query:query];
+    
+    for(NSMutableDictionary *dict in result){
+        [countDict setObject:[NSString stringWithFormat:@"%@",dict[@"count"]] forKey:[NSString stringWithFormat:@"%@",dict[@"type"]]];
+    }
+    
+    //检查内容，key为1，2，3.如果缺少 则补0
+    for(int i = 1; i < 4; i++){
+        if(![countDict objectForKey:[NSString stringWithFormat:@"%d",i]]){
+            [countDict setObject:@"0" forKey:[NSString stringWithFormat:@"%d",i]];
+        }
+    }
+    return countDict;
 }
 
 @end
