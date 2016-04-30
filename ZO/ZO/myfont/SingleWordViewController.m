@@ -7,6 +7,8 @@
 //
 
 #import "SingleWordViewController.h"
+#import "FMDBHelper.h"
+#import "ZOPNGManager.h"
 
 @interface SingleWordViewController ()
 
@@ -76,7 +78,18 @@
 
 #pragma mark - SEL 
 -(void)onDeleteBtnClick{
+    //TODO: 确认删除
     
+    //数据库中删除记录
+    if(![[FMDBHelper sharedManager] deleteById:self.model.zoid]){
+        //TODO: 返回错误提示，删除失败
+        return;
+    }
+    //删除本地文件（如果本地删除失败也要返回成功消息，因为数据库的数据已经不见了）
+    [ZOPNGManager deletePNGImage:self.model.filename];
+    
+    //TODO: 提示删除成功
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
