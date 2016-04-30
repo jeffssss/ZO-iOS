@@ -13,4 +13,6 @@
 +(NSString *)saveImageToPNG:(UIImage *)image withName:(NSString *)name;
 
 +(UIImage *)imageWithFilename:(NSString *)filename;
+
++(BOOL)deletePNGImage:(NSString *)filename;
 @end

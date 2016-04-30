@@ -29,4 +29,14 @@
     return [UIImage imageWithContentsOfFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:filename]];
 }
 
++(BOOL)deletePNGImage:(NSString *)filename{
+    NSString *filePath =[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:filename];
+    NSError *error;
+    BOOL result = [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+    if(!result){
+        NSLog(@"Unable to delete pngImageFile:%@",[error localizedDescription]);
+    }
+    return result;
+}
+
 @end
