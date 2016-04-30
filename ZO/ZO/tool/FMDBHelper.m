@@ -7,7 +7,7 @@
 //
 
 #import "FMDBHelper.h"
-#import <FMDB/FMDB.h>
+
 
 NSString * const db_path = @"ZOdb.db";
 NSString * const TABLENAME = @"zofont";
@@ -83,8 +83,18 @@ NSString * const CREATETIME = @"createtime";
     }
     return NO;
 }
-
 -(NSMutableArray *)query:(NSString *)sql{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    if ([self.db open]) {
+        FMResultSet * rs = [self.db executeQuery:sql];
+        while ([rs next]) {
+            [array addObject:[rs resultDictionary]];
+        }
+        [self.db close];
+    }
+    return array;
+}
+-(NSMutableArray *)queryModel:(NSString *)sql{
     NSMutableArray *resultArray = [[NSMutableArray alloc] init];
     if ([self.db open]) {
         FMResultSet * rs = [self.db executeQuery:sql];
@@ -112,6 +122,17 @@ NSString * const CREATETIME = @"createtime";
 -(BOOL)exec:(NSString *)sql{
     if ([self.db open]) {
         BOOL res = [self.db executeUpdate:sql];
+        [self.db close];
+        return res;
+    }
+    return NO;
+}
+
+-(BOOL)deleteById:(NSInteger)zoid{
+    if([self.db open]){
+        NSString * query = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@ = %d",TABLENAME,ZOID,(int)zoid];
+        NSLog(@"%@",query);
+        BOOL res = [self.db executeUpdate:query];
         [self.db close];
         return res;
     }

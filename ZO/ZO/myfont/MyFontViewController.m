@@ -100,7 +100,7 @@
 -(void)refreshDatasourceArray{
     self.datasourceArray = [[NSMutableArray alloc] init];
     for(int i = 1 ; i < 4 ; i ++){
-        [self.datasourceArray addObject:[[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where type = %d order by createtime desc limit 5",i]]];
+        [self.datasourceArray addObject:[[FMDBHelper sharedManager] queryModel:[NSString stringWithFormat:@"select * from zofont where type = %d order by createtime desc limit 5",i]]];
     }
     //TEST:
     NSLog(@"Datasource:\nType=1数据有%lu,Type=2数据有%lu,Type=3数据有%lu",(unsigned long)[self.datasourceArray[0] count],(unsigned long)[self.datasourceArray[1] count],(unsigned long)[self.datasourceArray[2] count]);

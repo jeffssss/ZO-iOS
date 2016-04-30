@@ -203,7 +203,7 @@
         if(nil == self.selectedWordString || [self.selectedWordString isEqualToString:@""]){
             return;
         }
-        NSMutableArray *array = [[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where name = '%@' order by createtime desc",self.selectedWordString]];
+        NSMutableArray *array = [[FMDBHelper sharedManager] queryModel:[NSString stringWithFormat:@"select * from zofont where name = '%@' order by createtime desc",self.selectedWordString]];
         for (int i = 0;  i < array.count ; i++) {
             WordImageView *imageview = [[WordImageView alloc] initWithFrame:CGRectMake(20 + 60 * i, 10, 50, 50)];
             imageview.model = array[i];

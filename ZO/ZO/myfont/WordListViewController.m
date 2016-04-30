@@ -94,7 +94,7 @@
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     NSMutableArray *array = [[NSMutableArray alloc] init];
     //获取type的所有记录
-    NSMutableArray *dataArray = [[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where type = %d order by createtime desc",self.type]];
+    NSMutableArray *dataArray = [[FMDBHelper sharedManager] queryModel:[NSString stringWithFormat:@"select * from zofont where type = %d order by createtime desc",self.type]];
     //分类，组成dictionary
     for(ZOFontModel *model in dataArray){
         NSMutableArray *thisArray = [dict objectForKey:model.name];

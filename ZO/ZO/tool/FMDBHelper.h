@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZOFontModel.h"
+#import <FMDB/FMDB.h>
 
 @interface FMDBHelper : NSObject
 
@@ -17,6 +18,10 @@
 
 -(NSMutableArray *)query:(NSString *)sql;
 
+-(NSMutableArray *)queryModel:(NSString *)sql;
+
 -(BOOL)exec:(NSString *)sql;
+
+-(BOOL)deleteById:(NSInteger)zoid;
 
 @end

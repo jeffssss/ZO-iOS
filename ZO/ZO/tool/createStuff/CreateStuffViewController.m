@@ -262,7 +262,7 @@
     if([nameStr length]!=1){
         return;
     }
-    NSMutableArray *result = [[FMDBHelper sharedManager] query:[NSString stringWithFormat:@"select * from zofont where name = '%@' order by createtime desc limit 1",nameStr]];
+    NSMutableArray *result = [[FMDBHelper sharedManager] queryModel:[NSString stringWithFormat:@"select * from zofont where name = '%@' order by createtime desc limit 1",nameStr]];
     WordImageView *wordImageView = [[WordImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
 //    wordImageView.backgroundColor = [UIColor greenColor];
     if(result.count>0){
