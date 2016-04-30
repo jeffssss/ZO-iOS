@@ -13,6 +13,7 @@
 #import "SingleWordViewController.h"
 #import "WordListViewController.h"
 #import "ZONavigationBarView.h"
+#import "WordWithTZGView.h"
 
 @interface MyFontViewController ()<InputNameDelegate,UITextFieldDelegate>
 
@@ -152,10 +153,8 @@
                 break;
             }
             //显示图片
-            UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(10 + 60*i, 5, 50, 50)];
-            imageview.backgroundColor = [UIColor redColor];
             ZOFontModel *model = self.datasourceArray[0][i];
-            imageview.image = [ZOPNGManager imageWithFilename:model.filename];
+            WordWithTZGView *imageview = [[WordWithTZGView alloc] initWithFrame:CGRectMake(10 + 60*i, 5, 50, 50) andWordImage:[ZOPNGManager imageWithFilename:model.filename]];
             NSLog(@"path = %@",[(ZOFontModel*)self.datasourceArray[0][i] filename]);
             [self.firstClassContentView addSubview:imageview];
             
@@ -177,9 +176,8 @@
                 break;
             }
             //显示图片
-            UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(10 + 60*i, 5, 50, 50)];
             ZOFontModel *model = self.datasourceArray[1][i];
-            imageview.image = [ZOPNGManager imageWithFilename:model.filename];
+            WordWithTZGView *imageview = [[WordWithTZGView alloc] initWithFrame:CGRectMake(10 + 60*i, 5, 50, 50) andWordImage:[ZOPNGManager imageWithFilename:model.filename]];
             [self.secondClassContentView addSubview:imageview];
             //点击图片跳转
             imageview.userInteractionEnabled = YES;

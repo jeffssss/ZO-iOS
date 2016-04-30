@@ -22,6 +22,7 @@
 		C20570951C8BEF5A0033D189 /* tianzige@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570931C8BEF5A0033D189 /* tianzige@2x.png */; };
 		C20570961C8BEF5A0033D189 /* tianzige@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570941C8BEF5A0033D189 /* tianzige@3x.png */; };
 		C20570991C8BF95D0033D189 /* 汉仪篆书繁.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */; };
+		C237EE341CD4A09F00B35032 /* WordWithTZGView.m in Sources */ = {isa = PBXBuildFile; fileRef = C237EE331CD4A09F00B35032 /* WordWithTZGView.m */; };
 		C24A18421C8C0BB400FEFF21 /* FMDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */; };
 		C24A18451C8C150000FEFF21 /* ZOFontModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18441C8C150000FEFF21 /* ZOFontModel.m */; };
 		C24A18481C8D5B2100FEFF21 /* ZOPNGManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18471C8D5B2100FEFF21 /* ZOPNGManager.m */; };
@@ -93,6 +94,8 @@
 		C205708A1C8AD5AE0033D189 /* MyFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFontViewController.m; sourceTree = "<group>"; };
 		C20570931C8BEF5A0033D189 /* tianzige@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianzige@2x.png"; sourceTree = "<group>"; };
 		C20570941C8BEF5A0033D189 /* tianzige@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianzige@3x.png"; sourceTree = "<group>"; };
+		C237EE321CD4A09F00B35032 /* WordWithTZGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordWithTZGView.h; sourceTree = "<group>"; };
+		C237EE331CD4A09F00B35032 /* WordWithTZGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordWithTZGView.m; sourceTree = "<group>"; };
 		C24A18401C8C0BB400FEFF21 /* FMDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBHelper.h; sourceTree = "<group>"; };
 		C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBHelper.m; sourceTree = "<group>"; };
 		C24A18431C8C150000FEFF21 /* ZOFontModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZOFontModel.h; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 				C2BA977E1C915A00007B7725 /* WordListViewController.m */,
 				C2BA97801C916748007B7725 /* SingleWordCollectionViewCell.h */,
 				C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */,
+				C237EE321CD4A09F00B35032 /* WordWithTZGView.h */,
+				C237EE331CD4A09F00B35032 /* WordWithTZGView.m */,
 			);
 			path = myfont;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C24A18481C8D5B2100FEFF21 /* ZOPNGManager.m in Sources */,
+				C237EE341CD4A09F00B35032 /* WordWithTZGView.m in Sources */,
 				C205708B1C8AD5AE0033D189 /* MyFontViewController.m in Sources */,
 				C24A18421C8C0BB400FEFF21 /* FMDBHelper.m in Sources */,
 				C205705F1C89965E0033D189 /* ViewController.m in Sources */,
