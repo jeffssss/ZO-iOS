@@ -41,7 +41,7 @@
 #pragma mark - getter
 -(ZONavigationBarView *)navigationBarView{
     if(nil == _navigationBarView){
-        _navigationBarView = [[ZONavigationBarView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 120)];
+        _navigationBarView = [[ZONavigationBarView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 100)];
         _navigationBarView.titleLabel.text = self.title;
         [_navigationBarView.backBtn setTarget:self action:@selector(onBackBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_navigationBarView];

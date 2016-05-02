@@ -10,8 +10,13 @@
 #import "ZOFontModel.h"
 #import "FMDBHelper.h"
 #import "SingleWordCollectionViewCell.h"
+#import "ZONavigationBarView.h"
 
 @interface WordListViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+@property(nonatomic,strong) ZONavigationBarView         *navigationBarView;
+
+@property(nonatomic,strong) UILabel                     *progressLabel;
 
 @property(nonatomic,strong) NSMutableDictionary         *datasource;
 @property(nonatomic,strong) NSMutableArray              *dataOrderArray;//为了能顺序的获取dictionary的value；
@@ -25,8 +30,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"列表";
-    self.view.backgroundColor = [UIColor whiteColor];
+    switch (self.type) {
+        case 1:
+            self.title = @"一级汉字";
+            break;
+        case 2:
+            self.title = @"二级汉字";
+            break;
+        default:
+            self.title = @"其他字符";
+            break;
+    }
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen_background"]];
     
     // Do any additional setup after loading the view.
     [self refreshDatasource];
@@ -39,13 +54,35 @@
 }
 
 #pragma mark - getter
+-(ZONavigationBarView *)navigationBarView{
+    if(nil == _navigationBarView){
+        _navigationBarView = [[ZONavigationBarView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 100)];
+        _navigationBarView.titleLabel.text = self.title;
+        [_navigationBarView.backBtn setTarget:self action:@selector(onBackBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:_navigationBarView];
+        
+    }
+    return _navigationBarView;
+}
+
+-(UILabel *)progressLabel{
+    if(nil == _progressLabel){
+        _progressLabel = [[UILabel alloc] initWithFrame:CGRectMake((kScreenWidth - 251)/2.0, self.navigationBarView.bottom, 251, 40)];
+        _progressLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"scroll"]];
+        _progressLabel.font = [UIFont fontWithName:@"-" size:20];
+        _progressLabel.text = [self getProgressDescription];
+        _progressLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:_progressLabel];
+    }
+    return _progressLabel;
+}
 -(UICollectionView *)collectionView{
     if(nil == _collectionView){
         UICollectionViewFlowLayout *fl = [[UICollectionViewFlowLayout alloc]init];
         [fl setScrollDirection:UICollectionViewScrollDirectionVertical];//设置其布局方向
         fl.headerReferenceSize = CGSizeMake(self.view.width, 40);
-        _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:fl];
-        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.progressLabel.bottom, kScreenWidth, kScreenHeight - self.progressLabel.bottom) collectionViewLayout:fl];
+        _collectionView.backgroundColor = [UIColor clearColor];
         [_collectionView registerClass:[SingleWordCollectionViewHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"COLLECTIONVIEW_HEADER"];
         [_collectionView registerClass:[SingleWordCollectionViewCell class] forCellWithReuseIdentifier:@"COLLECTIONVIEW_SINGLEWORD"];
         _collectionView.delegate = self;
@@ -107,6 +144,35 @@
     }
     self.datasource = dict;
     self.dataOrderArray = array;
+}
+
+-(NSString *)getProgressDescription{
+    NSString *query = [NSString stringWithFormat:@"select COUNT(*) as 'count' from zofont where type = %d group by type",self.type];
+    switch (self.type) {
+        case 1:{
+            NSMutableArray *result = [[FMDBHelper sharedManager] query:query];
+            return [NSString stringWithFormat:@"完成进度 (%@/3755)",result[0][@"count"]];
+            break;
+        }
+        case 2:{
+            NSMutableArray *result = [[FMDBHelper sharedManager] query:query];
+            return [NSString stringWithFormat:@"完成进度 (%@/3008)",result[0][@"count"]];
+            break;
+        }
+        case 3:{
+            NSMutableArray *result = [[FMDBHelper sharedManager] query:query];
+            return [NSString stringWithFormat:@"完成进度 (共%@个)",result[0][@"count"]];
+            break;
+        }
+        default:{
+            return @"完成进度未知";
+            break;
+        }
+    }
+}
+
+-(void)onBackBtnClick:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

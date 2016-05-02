@@ -86,7 +86,7 @@
 
 -(ZONavigationBarView *)navigationBarView{
     if(nil == _navigationBarView){
-        _navigationBarView = [[ZONavigationBarView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 120)];
+        _navigationBarView = [[ZONavigationBarView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 100)];
         _navigationBarView.titleLabel.text = self.title;
         [_navigationBarView.backBtn setEnabled:NO];
         [self.view addSubview:_navigationBarView];
