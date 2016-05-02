@@ -156,7 +156,7 @@
             }
             //显示图片
             ZOFontModel *model = self.datasourceArray[0][i];
-            WordWithTZGView *imageview = [[WordWithTZGView alloc] initWithFrame:CGRectMake(10 + 60*i, 5, 50, 50) andWordImage:[ZOPNGManager imageWithFilename:model.filename]];
+            WordWithTZGView *imageview = [[WordWithTZGView alloc] initWithFrame:CGRectMake(20 + 60*i, 5, 50, 50) andWordImage:[ZOPNGManager imageWithFilename:model.filename]];
             NSLog(@"path = %@",[(ZOFontModel*)self.datasourceArray[0][i] filename]);
             [self.firstClassContentView addSubview:imageview];
             
@@ -170,7 +170,7 @@
         }
     } else {
         //显示无记录
-        UILabel *noresultLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, 200, 50)];
+        UILabel *noresultLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, kScreenWidth - 60, 50)];
         noresultLabel.text = @"没有记录，快去写字吧~";
         noresultLabel.font = [UIFont fontWithName:@"-" size:20];
         [self.firstClassContentView addSubview:noresultLabel];
@@ -183,7 +183,7 @@
             }
             //显示图片
             ZOFontModel *model = self.datasourceArray[1][i];
-            WordWithTZGView *imageview = [[WordWithTZGView alloc] initWithFrame:CGRectMake(10 + 60*i, 5, 50, 50) andWordImage:[ZOPNGManager imageWithFilename:model.filename]];
+            WordWithTZGView *imageview = [[WordWithTZGView alloc] initWithFrame:CGRectMake(20 + 60*i, 5, 50, 50) andWordImage:[ZOPNGManager imageWithFilename:model.filename]];
             [self.secondClassContentView addSubview:imageview];
             //点击图片跳转
             imageview.userInteractionEnabled = YES;
@@ -194,8 +194,7 @@
             }]];
         }
     } else {
-        //TODO:本来应该显示无的，现在先不写
-        UILabel *noresultLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, 200, 50)];
+        UILabel *noresultLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, kScreenWidth - 60, 50)];
         noresultLabel.text = @"没有记录，快去写字吧~";
         noresultLabel.font = [UIFont fontWithName:@"-" size:20];
         [self.secondClassContentView addSubview:noresultLabel];

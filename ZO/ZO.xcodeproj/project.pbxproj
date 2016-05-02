@@ -34,11 +34,16 @@
 		C254F7C11C9ABD2A009E1441 /* SaveSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7C01C9ABD2A009E1441 /* SaveSuccessViewController.m */; };
 		C254F7C21C9AD6FD009E1441 /* seal_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570811C89A6F60033D189 /* seal_background.png */; };
 		C254F7C41C9C1B1F009E1441 /* picture_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C254F7C31C9C1B1F009E1441 /* picture_placeholder.png */; };
+		C2552FC21CD733BA00983AF3 /* back_arrow_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2552FC01CD733BA00983AF3 /* back_arrow_black@2x.png */; };
+		C2552FC31CD733BA00983AF3 /* back_arrow_black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2552FC11CD733BA00983AF3 /* back_arrow_black@3x.png */; };
+		C2552FC61CD73E2900983AF3 /* delete_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2552FC41CD73E2900983AF3 /* delete_icon@2x.png */; };
+		C2552FC71CD73E2900983AF3 /* delete_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2552FC51CD73E2900983AF3 /* delete_icon@3x.png */; };
 		C27E5D681CC7C55400DDAD85 /* ZONavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C27E5D671CC7C55400DDAD85 /* ZONavigationBarView.m */; };
 		C27E5D6B1CC7C90600DDAD85 /* zo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C27E5D691CC7C90600DDAD85 /* zo@2x.png */; };
 		C27E5D6C1CC7C90600DDAD85 /* zo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C27E5D6A1CC7C90600DDAD85 /* zo@3x.png */; };
 		C27E5D6F1CC7CC3F00DDAD85 /* screen_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C27E5D6D1CC7CC3F00DDAD85 /* screen_background@2x.png */; };
 		C27E5D701CC7CC3F00DDAD85 /* screen_background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C27E5D6E1CC7CC3F00DDAD85 /* screen_background@3x.png */; };
+		C290FC391CD5E5790023B64A /* SimpleNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C290FC381CD5E5790023B64A /* SimpleNavigationBarView.m */; };
 		C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */; };
 		C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977E1C915A00007B7725 /* WordListViewController.m */; };
 		C2BA97821C916748007B7725 /* SingleWordCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */; };
@@ -115,12 +120,18 @@
 		C254F7BF1C9ABD2A009E1441 /* SaveSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveSuccessViewController.h; sourceTree = "<group>"; };
 		C254F7C01C9ABD2A009E1441 /* SaveSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveSuccessViewController.m; sourceTree = "<group>"; };
 		C254F7C31C9C1B1F009E1441 /* picture_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture_placeholder.png; sourceTree = "<group>"; };
+		C2552FC01CD733BA00983AF3 /* back_arrow_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_arrow_black@2x.png"; sourceTree = "<group>"; };
+		C2552FC11CD733BA00983AF3 /* back_arrow_black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_arrow_black@3x.png"; sourceTree = "<group>"; };
+		C2552FC41CD73E2900983AF3 /* delete_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_icon@2x.png"; sourceTree = "<group>"; };
+		C2552FC51CD73E2900983AF3 /* delete_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_icon@3x.png"; sourceTree = "<group>"; };
 		C27E5D661CC7C55400DDAD85 /* ZONavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZONavigationBarView.h; sourceTree = "<group>"; };
 		C27E5D671CC7C55400DDAD85 /* ZONavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZONavigationBarView.m; sourceTree = "<group>"; };
 		C27E5D691CC7C90600DDAD85 /* zo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zo@2x.png"; sourceTree = "<group>"; };
 		C27E5D6A1CC7C90600DDAD85 /* zo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zo@3x.png"; sourceTree = "<group>"; };
 		C27E5D6D1CC7CC3F00DDAD85 /* screen_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen_background@2x.png"; sourceTree = "<group>"; };
 		C27E5D6E1CC7CC3F00DDAD85 /* screen_background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen_background@3x.png"; sourceTree = "<group>"; };
+		C290FC371CD5E5790023B64A /* SimpleNavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleNavigationBarView.h; sourceTree = "<group>"; };
+		C290FC381CD5E5790023B64A /* SimpleNavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNavigationBarView.m; sourceTree = "<group>"; };
 		C2BA977A1C9142E8007B7725 /* SingleWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleWordViewController.h; sourceTree = "<group>"; };
 		C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleWordViewController.m; sourceTree = "<group>"; };
 		C2BA977D1C915A00007B7725 /* WordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordListViewController.h; sourceTree = "<group>"; };
@@ -299,6 +310,8 @@
 				C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */,
 				C237EE321CD4A09F00B35032 /* WordWithTZGView.h */,
 				C237EE331CD4A09F00B35032 /* WordWithTZGView.m */,
+				C290FC371CD5E5790023B64A /* SimpleNavigationBarView.h */,
+				C290FC381CD5E5790023B64A /* SimpleNavigationBarView.m */,
 			);
 			path = myfont;
 			sourceTree = "<group>";
@@ -306,6 +319,10 @@
 		C20570921C8BEF410033D189 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C2552FC41CD73E2900983AF3 /* delete_icon@2x.png */,
+				C2552FC51CD73E2900983AF3 /* delete_icon@3x.png */,
+				C2552FC01CD733BA00983AF3 /* back_arrow_black@2x.png */,
+				C2552FC11CD733BA00983AF3 /* back_arrow_black@3x.png */,
 				C2F0EFC51CCFB2B00027509F /* scroll@2x.png */,
 				C2F0EFC61CCFB2B00027509F /* scroll@3x.png */,
 				C2F0EFC11CCFAFF60027509F /* icon_selected@2x.png */,
@@ -423,8 +440,10 @@
 				C2C6540E1CABABC5003B989E /* text_in_image@3x.png in Resources */,
 				C254F7C21C9AD6FD009E1441 /* seal_background.png in Resources */,
 				C20570991C8BF95D0033D189 /* 汉仪篆书繁.ttf in Resources */,
+				C2552FC31CD733BA00983AF3 /* back_arrow_black@3x.png in Resources */,
 				C2C654111CABAEAB003B989E /* create_stuff_background@2x.png in Resources */,
 				C27E5D6C1CC7C90600DDAD85 /* zo@3x.png in Resources */,
+				C2552FC71CD73E2900983AF3 /* delete_icon@3x.png in Resources */,
 				C27E5D6F1CC7CC3F00DDAD85 /* screen_background@2x.png in Resources */,
 				C20570671C89965E0033D189 /* LaunchScreen.storyboard in Resources */,
 				C27E5D6B1CC7C90600DDAD85 /* zo@2x.png in Resources */,
@@ -434,6 +453,7 @@
 				C27E5D701CC7CC3F00DDAD85 /* screen_background@3x.png in Resources */,
 				C2C6540D1CABABC5003B989E /* text_in_image@2x.png in Resources */,
 				C2C654051CABA85E003B989E /* pure_text@2x.png in Resources */,
+				C2552FC21CD733BA00983AF3 /* back_arrow_black@2x.png in Resources */,
 				C20570641C89965E0033D189 /* Assets.xcassets in Resources */,
 				C2C6540A1CABAABE003B989E /* image_top@3x.png in Resources */,
 				C2F0EFC81CCFB2B00027509F /* scroll@3x.png in Resources */,
@@ -441,6 +461,7 @@
 				C20570961C8BEF5A0033D189 /* tianzige@3x.png in Resources */,
 				C2ED03151CCB5DAD00212DCC /* brush_line@3x.png in Resources */,
 				C20570621C89965E0033D189 /* Main.storyboard in Resources */,
+				C2552FC61CD73E2900983AF3 /* delete_icon@2x.png in Resources */,
 				C2C654091CABAABE003B989E /* image_top@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +531,7 @@
 				C2BA978C1C93E839007B7725 /* CreateStuffToolbar.m in Sources */,
 				C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */,
 				C2BA978F1C993860007B7725 /* WordImageView.m in Sources */,
+				C290FC391CD5E5790023B64A /* SimpleNavigationBarView.m in Sources */,
 				C24A184B1C8D6AE300FEFF21 /* WriteWordViewController.m in Sources */,
 				C24A18541C8ECC8900FEFF21 /* InputNameView.m in Sources */,
 				C27E5D681CC7C55400DDAD85 /* ZONavigationBarView.m in Sources */,
@@ -639,6 +661,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -691,6 +714,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

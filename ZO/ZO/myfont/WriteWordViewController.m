@@ -100,8 +100,6 @@
     }
     
     //存到数据库里。
-    
-    //先假设全部都是一级汉字.
     ZOFontModel *model = [[ZOFontModel alloc] init];
     model.filename = filename;
     model.type = [self typeWithNameString:self.nameString];
