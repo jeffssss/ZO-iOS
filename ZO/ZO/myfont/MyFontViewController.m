@@ -124,6 +124,11 @@
     
     self.secondClassWordTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, self.firstClassContentView.bottom, kScreenWidth, 40)];
     [self.view addSubview:self.secondClassWordTitleView];
+    [self.secondClassWordTitleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+        WordListViewController *wordlistVC = [[WordListViewController alloc] init];
+        wordlistVC.type = 2;
+        [self.navigationController pushViewController:wordlistVC animated:YES];
+    }]];
     self.secondClassCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, self.firstClassCountLabel.width, self.secondClassWordTitleView.height)];
     self.secondClassCountLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"scroll"]];
     self.secondClassCountLabel.font = [UIFont fontWithName:@"-" size:20];

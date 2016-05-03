@@ -148,20 +148,22 @@
 
 -(NSString *)getProgressDescription{
     NSString *query = [NSString stringWithFormat:@"select COUNT(*) as 'count' from zofont where type = %d group by type",self.type];
+    NSMutableArray *result = [[FMDBHelper sharedManager] query:query];
+    NSNumber *count = [NSNumber numberWithInt:0];
+    if([result count] != 0){
+        count = result[0][@"count"];
+    }
     switch (self.type) {
         case 1:{
-            NSMutableArray *result = [[FMDBHelper sharedManager] query:query];
-            return [NSString stringWithFormat:@"完成进度 (%@/3755)",result[0][@"count"]];
+            return [NSString stringWithFormat:@"完成进度 (%@/3755)",count];
             break;
         }
         case 2:{
-            NSMutableArray *result = [[FMDBHelper sharedManager] query:query];
-            return [NSString stringWithFormat:@"完成进度 (%@/3008)",result[0][@"count"]];
+            return [NSString stringWithFormat:@"完成进度 (%@/3008)",count];
             break;
         }
         case 3:{
-            NSMutableArray *result = [[FMDBHelper sharedManager] query:query];
-            return [NSString stringWithFormat:@"完成进度 (共%@个)",result[0][@"count"]];
+            return [NSString stringWithFormat:@"完成进度 (共%@个)",count];
             break;
         }
         default:{
