@@ -10,9 +10,11 @@
 #import "ZO-Swift.h"
 #import "ZOPNGManager.h"
 #import "FMDBHelper.h"
+#import "SimpleNavigationBarView.h"
 
 @interface WriteWordViewController ()
 
+@property(nonatomic,strong) SimpleNavigationBarView *navigationBarView;
 @property(nonatomic,strong) UIView          *brushContentView;
 @property(nonatomic,strong) UIImageView     *tianBackgroundImageView;
 @property(nonatomic,strong) AFBrushBoard    *brushBoard;
@@ -24,6 +26,9 @@
 @implementation WriteWordViewController
 
 - (void)viewDidLoad {
+    self.title = self.nameString;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen_background"]];
+    
     [super viewDidLoad];
     [self clearBtn];
     [self tianBackgroundImageView];
@@ -33,9 +38,20 @@
 }
 
 #pragma mark - getter
+-(SimpleNavigationBarView *)navigationBarView{
+    if(nil == _navigationBarView){
+        _navigationBarView = [[SimpleNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
+        _navigationBarView.titleLabel.text = self.title;
+        [_navigationBarView.backBtn setTarget:self action:@selector(onBackBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:_navigationBarView];
+        
+    }
+    return _navigationBarView;
+}
+
 -(UIButton *)clearBtn{
     if(nil == _clearBtn){
-        _clearBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, 50)];
+        _clearBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, kScreenWidth, 50)];
         [_clearBtn setTitle:@"clear" forState:UIControlStateNormal];
         [_clearBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_clearBtn setBackgroundColor:[UIColor grayColor]];
@@ -86,7 +102,9 @@
 }
 
 #pragma mark - SEL
-
+-(void)onBackBtnClick:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(void)onClearBtnClick{
     [self.brushBoard btnClick];
 }

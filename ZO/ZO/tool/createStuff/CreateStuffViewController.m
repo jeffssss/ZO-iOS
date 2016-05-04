@@ -14,9 +14,14 @@
 #import "ZOPNGManager.h"
 #import "WordImageView.h"
 #import "PreviewViewController.h"
+#import "SimpleNavigationBarView.h"
+
 @interface CreateStuffViewController ()<UITextFieldDelegate,InputNameDelegate,CreateStuffToolbarDelegate,UIGestureRecognizerDelegate>
 
-@property(nonatomic,strong) UIButton            *addTextBtn;
+@property(nonatomic,strong) SimpleNavigationBarView *navigationBarView;
+
+@property(nonatomic,strong) UIButton            *addTextBtn; //添加字
+@property(nonatomic,strong) UIButton            *doneBtn;
 @property(nonatomic,strong) UIButton            *addBackgroundBtn;//TODO:之后提供可选的背景图
 @property(nonatomic,strong) UIButton            *addImageViewBtn;//TODO:blank模式没有次选项
 
@@ -41,10 +46,11 @@
     NSLog(@"%d",self.type);
     
     self.title = @"编辑";
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen_background"]];
     //tabnavbar
-    UIBarButtonItem *rightButtonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddTextBtnClick:)];
-    UIBarButtonItem *rightButtonDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onFinishBtnClick:)];
-    self.navigationItem.rightBarButtonItems = @[rightButtonAdd,rightButtonDone];
+//    UIBarButtonItem *rightButtonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddTextBtnClick:)];
+//    UIBarButtonItem *rightButtonDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onFinishBtnClick:)];
+//    self.navigationItem.rightBarButtonItems = @[rightButtonAdd,rightButtonDone];
     
     [self bottomToolbar];
     [self middleView];
@@ -63,6 +69,27 @@
 }
 
 #pragma mark -getter
+-(SimpleNavigationBarView *)navigationBarView{
+    if(nil == _navigationBarView){
+        _navigationBarView = [[SimpleNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
+        _navigationBarView.titleLabel.text = self.title;
+        [_navigationBarView.backBtn setTarget:self action:@selector(onBackBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        //添加 增加按钮
+        _addTextBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 10*2 - 44*2, 20, 44, 44)];
+        [_addTextBtn setTitle:@"+" forState:(UIControlStateNormal)];
+        [_addTextBtn setTarget:self action:@selector(onAddTextBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_navigationBarView addSubview:_addTextBtn];
+        _doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 10 - 44, 20, 44, 44)];
+        [_doneBtn setTitle:@"OK" forState:(UIControlStateNormal)];
+        [_doneBtn setTarget:self action:@selector(onFinishBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_navigationBarView addSubview:_doneBtn];
+        [self.view addSubview:_navigationBarView];
+        
+    }
+    return _navigationBarView;
+}
+
 -(CreateStuffToolbar *)bottomToolbar{
     if(nil == _bottomToolbar){
         _bottomToolbar = [[CreateStuffToolbar alloc] initWithFrame:CGRectMake(0, self.view.height-70, kScreenWidth, 70)];
@@ -74,7 +101,7 @@
 
 -(UIView *)middleView{
     if(nil == _middleView){
-        _middleView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, self.bottomToolbar.top - 64)];
+        _middleView = [[UIView alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, kScreenWidth, self.bottomToolbar.top - 64)];
         _middleView.backgroundColor = UIColorHex(0xD8D8D8);
         [self.view addSubview:_middleView];
     }
@@ -167,6 +194,9 @@
     return _inputNamePopup;
 }
 #pragma mark - SEL 
+-(void)onBackBtnClick:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(void)onAddTextBtnClick:(id)sender{
     [self.inputNamePopup show];
 }

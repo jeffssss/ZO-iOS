@@ -8,11 +8,12 @@
 
 #import "PreviewViewController.h"
 #import "SaveSuccessViewController.h"
+#import "SimpleNavigationBarView.h"
 
 @interface PreviewViewController ()
 
+@property(nonatomic,strong) SimpleNavigationBarView *navigationBarView;
 @property(nonatomic,strong) UIImageView     *previewImageView;
-
 
 @end
 
@@ -21,18 +22,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"预览";
-    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen_background"]];
     //tabnavbar
     UIBarButtonItem *rightButtonDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onSaveBtnClick:)];
     self.navigationItem.rightBarButtonItems = @[rightButtonDone];
     
     //previewImageView相关
-    _previewImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    _previewImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, kScreenWidth, kScreenHeight-self.navigationBarView.bottom)];
     _previewImageView.image = self.previewImage;
     _previewImageView.contentMode = UIViewContentModeCenter;
     [self.view addSubview:_previewImageView];
 }
-
+-(SimpleNavigationBarView *)navigationBarView{
+    if(nil == _navigationBarView){
+        _navigationBarView = [[SimpleNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
+        _navigationBarView.titleLabel.text = self.title;
+        [_navigationBarView.backBtn setTarget:self action:@selector(onBackBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        //保存按钮
+        UIButton *saveBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 10 - 44, 20, 44, 44)];
+        [saveBtn setTitle:@"Save" forState:(UIControlStateNormal)];
+        [saveBtn setTarget:self action:@selector(onSaveBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_navigationBarView addSubview:saveBtn];
+        [self.view addSubview:_navigationBarView];
+        
+    }
+    return _navigationBarView;
+}
 -(void)onSaveBtnClick:(id)sender{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -62,7 +77,10 @@
     
     
 }
-
+#pragma mark - SEL
+-(void)onBackBtnClick:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
