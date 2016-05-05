@@ -11,6 +11,8 @@
 #import "MainViewController.h"
 #import "SplashViewController.h"
 #import "BezierPathAnimationView.h"
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
 
 @interface AppDelegate ()<SplashViewControllerDelegate>
 
@@ -23,6 +25,8 @@
     
     //打印当前沙盒路径
     NSLog(@"当前沙盒路径:%@",[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@""]);
+    [self socialSetting];
+    
     //performe splash
     [self performSplash];
 
@@ -80,6 +84,26 @@
     
 
     
+}
+
+-(void)socialSetting{
+    
+    [UMSocialData setAppKey:@"572aa335e0f55a323a001866"];
+    //调试用
+    [UMSocialData openLog:YES];
+    //微信
+    [UMSocialWechatHandler setWXAppId:@"wxe43c04eb1cacffb8" appSecret:@"b8dd3305cc95db624e681d500a8828c3" url:@"http://jeffssss.github.io/"];
+    
+    
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

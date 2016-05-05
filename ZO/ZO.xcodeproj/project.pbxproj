@@ -101,6 +101,10 @@
 		C20570941C8BEF5A0033D189 /* tianzige@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianzige@3x.png"; sourceTree = "<group>"; };
 		C237EE321CD4A09F00B35032 /* WordWithTZGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordWithTZGView.h; sourceTree = "<group>"; };
 		C237EE331CD4A09F00B35032 /* WordWithTZGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordWithTZGView.m; sourceTree = "<group>"; };
+		C23A41DE1CDB96CB004B27A2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C23A41E01CDB96E0004B27A2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C23A41E21CDB96E8004B27A2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C23A41E41CDB96FB004B27A2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C24A18401C8C0BB400FEFF21 /* FMDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBHelper.h; sourceTree = "<group>"; };
 		C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBHelper.m; sourceTree = "<group>"; };
 		C24A18431C8C150000FEFF21 /* ZOFontModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZOFontModel.h; sourceTree = "<group>"; };
@@ -194,6 +198,10 @@
 		7C9C061A720DB98AE37B5FDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C23A41E41CDB96FB004B27A2 /* CoreTelephony.framework */,
+				C23A41E21CDB96E8004B27A2 /* CoreGraphics.framework */,
+				C23A41E01CDB96E0004B27A2 /* SystemConfiguration.framework */,
+				C23A41DE1CDB96CB004B27A2 /* Security.framework */,
 				C2C654131CABBC70003B989E /* MobileCoreServices.framework */,
 				C20570861C89EC9A0033D189 /* Reveal.framework */,
 				1CD6B7B586AC9CCA5B08E770 /* libPods.a */,

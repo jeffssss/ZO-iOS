@@ -10,8 +10,10 @@
 #import "MyFontViewController.h"
 #import "ChooseTemplateViewController.h"
 #import "ZONavigationBarView.h"
+#import "UMSocialSnsService.h"
+#import "UMSocial.h"
 
-@interface MainViewController ()
+@interface MainViewController ()<UMSocialUIDelegate>
 
 @property(nonatomic,strong) ZONavigationBarView *navigationBarView;
 
@@ -46,6 +48,16 @@
         _sealImageView = [[UIImageView alloc] initWithFrame:CGRectMake((kScreenWidth - 150)/2.0, self.navigationBarView.bottom, 150, 150)];
         _sealImageView.image = seal;
         _sealImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _sealImageView.userInteractionEnabled = YES;
+        [_sealImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+            [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
+            [UMSocialSnsService presentSnsIconSheetView:self
+                                                 appKey:@"572aa335e0f55a323a001866"
+                                              shareText:nil
+                                             shareImage:[(UIImageView *)[sender view] image]
+                                        shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite]
+                                               delegate:self];
+        }]];
 //        _sealImageView.backgroundColor = [UIColor clearColor];
         [self.view addSubview:_sealImageView];
     }
@@ -105,7 +117,15 @@
         [self.navigationController pushViewController:chooseTemplateVC animated:YES];
     }
 }
-
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    //根据`responseCode`得到发送结果,如果分享成功
+    if(response.responseCode == UMSResponseCodeSuccess)
+    {
+        //得到分享到的微博平台名
+        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
+    }
+}
 #pragma mark -Private
 -(void)setButtonBorderAndFont:(UIButton *)button{
     button.titleLabel.font = [UIFont fontWithName:@"-" size:25];
