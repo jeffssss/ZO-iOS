@@ -32,5 +32,7 @@
     }
     return self;
 }
-
+-(void)changeBackgroundImage:(UIImage *)image{
+    self.tianzigeImageView.image = image;
+}
 @end

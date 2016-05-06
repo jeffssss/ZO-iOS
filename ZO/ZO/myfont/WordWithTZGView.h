@@ -12,4 +12,5 @@
 
 -(instancetype)initWithFrame:(CGRect)frame andWordImage:(UIImage *)wordImage;
 
+-(void)changeBackgroundImage:(UIImage *)image;
 @end
