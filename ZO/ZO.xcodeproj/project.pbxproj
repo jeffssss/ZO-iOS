@@ -22,6 +22,8 @@
 		C20570951C8BEF5A0033D189 /* tianzige@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570931C8BEF5A0033D189 /* tianzige@2x.png */; };
 		C20570961C8BEF5A0033D189 /* tianzige@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20570941C8BEF5A0033D189 /* tianzige@3x.png */; };
 		C20570991C8BF95D0033D189 /* 汉仪篆书繁.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C20570841C89B5F70033D189 /* 汉仪篆书繁.ttf */; };
+		C237C2FE1CDE2647005DFDBB /* back_arrow_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C237C2FC1CDE2647005DFDBB /* back_arrow_white@2x.png */; };
+		C237C2FF1CDE2647005DFDBB /* back_arrow_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C237C2FD1CDE2647005DFDBB /* back_arrow_white@3x.png */; };
 		C237EE341CD4A09F00B35032 /* WordWithTZGView.m in Sources */ = {isa = PBXBuildFile; fileRef = C237EE331CD4A09F00B35032 /* WordWithTZGView.m */; };
 		C24A18421C8C0BB400FEFF21 /* FMDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */; };
 		C24A18451C8C150000FEFF21 /* ZOFontModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18441C8C150000FEFF21 /* ZOFontModel.m */; };
@@ -103,6 +105,8 @@
 		C205708A1C8AD5AE0033D189 /* MyFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFontViewController.m; sourceTree = "<group>"; };
 		C20570931C8BEF5A0033D189 /* tianzige@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianzige@2x.png"; sourceTree = "<group>"; };
 		C20570941C8BEF5A0033D189 /* tianzige@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianzige@3x.png"; sourceTree = "<group>"; };
+		C237C2FC1CDE2647005DFDBB /* back_arrow_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_arrow_white@2x.png"; sourceTree = "<group>"; };
+		C237C2FD1CDE2647005DFDBB /* back_arrow_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_arrow_white@3x.png"; sourceTree = "<group>"; };
 		C237EE321CD4A09F00B35032 /* WordWithTZGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordWithTZGView.h; sourceTree = "<group>"; };
 		C237EE331CD4A09F00B35032 /* WordWithTZGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordWithTZGView.m; sourceTree = "<group>"; };
 		C23A41DE1CDB96CB004B27A2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -343,6 +347,8 @@
 				C2552FC51CD73E2900983AF3 /* delete_icon@3x.png */,
 				C2552FC01CD733BA00983AF3 /* back_arrow_black@2x.png */,
 				C2552FC11CD733BA00983AF3 /* back_arrow_black@3x.png */,
+				C237C2FC1CDE2647005DFDBB /* back_arrow_white@2x.png */,
+				C237C2FD1CDE2647005DFDBB /* back_arrow_white@3x.png */,
 				C2F0EFC51CCFB2B00027509F /* scroll@2x.png */,
 				C2F0EFC61CCFB2B00027509F /* scroll@3x.png */,
 				C2F0EFC11CCFAFF60027509F /* icon_selected@2x.png */,
@@ -469,6 +475,7 @@
 				C2552FC71CD73E2900983AF3 /* delete_icon@3x.png in Resources */,
 				C27E5D6F1CC7CC3F00DDAD85 /* screen_background@2x.png in Resources */,
 				C20570671C89965E0033D189 /* LaunchScreen.storyboard in Resources */,
+				C237C2FF1CDE2647005DFDBB /* back_arrow_white@3x.png in Resources */,
 				C27E5D6B1CC7C90600DDAD85 /* zo@2x.png in Resources */,
 				C2C654121CABAEAB003B989E /* create_stuff_background@3x.png in Resources */,
 				C2ED03141CCB5DAD00212DCC /* brush_line@2x.png in Resources */,
@@ -479,6 +486,7 @@
 				C2552FC21CD733BA00983AF3 /* back_arrow_black@2x.png in Resources */,
 				C20570641C89965E0033D189 /* Assets.xcassets in Resources */,
 				C289E4411CDCEB57002D7727 /* switch_icon@2x.png in Resources */,
+				C237C2FE1CDE2647005DFDBB /* back_arrow_white@2x.png in Resources */,
 				C2C6540A1CABAABE003B989E /* image_top@3x.png in Resources */,
 				C2F0EFC81CCFB2B00027509F /* scroll@3x.png in Resources */,
 				C20570951C8BEF5A0033D189 /* tianzige@2x.png in Resources */,
