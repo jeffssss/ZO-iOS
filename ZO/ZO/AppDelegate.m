@@ -13,6 +13,8 @@
 #import "BezierPathAnimationView.h"
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
+#import "UMSocialSinaSSOHandler.h"
+#import "UMSocialQQHandler.h"
 
 @interface AppDelegate ()<SplashViewControllerDelegate>
 
@@ -93,8 +95,12 @@
     [UMSocialData openLog:YES];
     //微信
     [UMSocialWechatHandler setWXAppId:@"wxe43c04eb1cacffb8" appSecret:@"b8dd3305cc95db624e681d500a8828c3" url:@"http://jeffssss.github.io/"];
-    
-    
+    //sina
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"339843723"
+                                              secret:@"58682962f555b413cd56e0fcccd15559"
+                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    //qq
+    [UMSocialQQHandler setQQWithAppId:@"1105320969" appKey:@"TBQFTIhzY2BhmHYD" url:@"http://www.umeng.com/social"];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
