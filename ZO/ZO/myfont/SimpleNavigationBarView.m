@@ -24,7 +24,7 @@
 //        [_backBtn setImage:[UIImage imageNamed:@"icon_selected"] forState:UIControlStateHighlighted];
         [self addSubview:_backBtn];
         
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake((frame.size.width - 100)/2.0, 20, 100, frame.size.height -20)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake((frame.size.width - 200)/2.0, 20, 200, frame.size.height -20)];
         _titleLabel.font = [UIFont fontWithName:@"-" size:30];
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
