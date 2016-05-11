@@ -107,6 +107,7 @@
 }
 
 -(void)initLayout{
+    //first
     self.firstClassWordTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, kScreenWidth, 40)];
     [self.firstClassWordTitleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
         WordListViewController *wordlistVC = [[WordListViewController alloc] init];
@@ -122,6 +123,7 @@
     self.firstClassContentView = [[UIView alloc] initWithFrame:CGRectMake(0, self.firstClassWordTitleView.bottom, self.firstClassWordTitleView.width, 60)];
     [self.view addSubview:self.firstClassContentView];
     
+    //second
     self.secondClassWordTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, self.firstClassContentView.bottom, kScreenWidth, 40)];
     [self.view addSubview:self.secondClassWordTitleView];
     [self.secondClassWordTitleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
@@ -137,7 +139,21 @@
     self.secondClassContentView = [[UIView alloc] initWithFrame:CGRectMake(0, self.secondClassWordTitleView.bottom, self.secondClassWordTitleView.width, 60)];
     [self.view addSubview:self.secondClassContentView];
     
-    //TODO:暂时省略其他类，也暂时把文字只放到一个UILabel里。
+    //Third
+    self.otherWordTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, self.secondClassContentView.bottom, kScreenWidth, 40)];
+    [self.otherWordTitleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+        WordListViewController *wordlistVC = [[WordListViewController alloc] init];
+        wordlistVC.type = 3;
+        [self.navigationController pushViewController:wordlistVC animated:YES];
+    }]];
+    [self.view addSubview:self.otherWordTitleView];
+    self.otherCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 251, self.otherWordTitleView.height)];
+    self.otherCountLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"scroll"]];
+    self.otherCountLabel.font = [UIFont fontWithName:@"-" size:20];
+    self.otherCountLabel.textAlignment = NSTextAlignmentCenter;
+    [self.otherWordTitleView addSubview:self.otherCountLabel];
+    self.otherContentView = [[UIView alloc] initWithFrame:CGRectMake(0, self.otherWordTitleView.bottom, self.otherWordTitleView.width, 60)];
+    [self.view addSubview:self.otherContentView];
     
     [self writeWordBtn];
     
@@ -148,6 +164,7 @@
     NSMutableDictionary *dict = [self getFontCountGroupCount];
     self.firstClassCountLabel.text = [NSString stringWithFormat:@"一级汉字（%@/3755）",dict[@"1"]] ;//TODO:这个数字需要查数据库
     self.secondClassCountLabel.text = [NSString stringWithFormat:@"二级汉字（%@/3008）",dict[@"2"]];
+    self.otherCountLabel.text = [NSString stringWithFormat:@"其他字符（%@）",dict[@"2"]];
     //其他类别的暂时没做UI
     
     //先清空subviews
@@ -167,7 +184,7 @@
             
             //点击图片跳转
             imageview.userInteractionEnabled = YES;
-            [imageview addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            [imageview addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
                 SingleWordViewController *singleVC = [[SingleWordViewController alloc] init];
                 singleVC.model = model;
                 [self.navigationController pushViewController:singleVC animated:YES];
@@ -192,7 +209,7 @@
             [self.secondClassContentView addSubview:imageview];
             //点击图片跳转
             imageview.userInteractionEnabled = YES;
-            [imageview addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            [imageview addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
                 SingleWordViewController *singleVC = [[SingleWordViewController alloc] init];
                 singleVC.model = model;
                 [self.navigationController pushViewController:singleVC animated:YES];
@@ -203,6 +220,30 @@
         noresultLabel.text = @"没有记录，快去写字吧~";
         noresultLabel.font = [UIFont fontWithName:@"-" size:20];
         [self.secondClassContentView addSubview:noresultLabel];
+    }
+    //other
+    if([self.datasourceArray[2] count] > 0 ){
+        for(int i = 0 ; i < [self.datasourceArray[2] count] ; i++){
+            if(i>3){
+                break;
+            }
+            //显示图片
+            ZOFontModel *model = self.datasourceArray[2][i];
+            WordWithTZGView *imageview = [[WordWithTZGView alloc] initWithFrame:CGRectMake(20 + 60*i, 5, 50, 50) andWordImage:[ZOPNGManager imageWithFilename:model.filename]];
+            [self.otherContentView addSubview:imageview];
+            //点击图片跳转
+            imageview.userInteractionEnabled = YES;
+            [imageview addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+                SingleWordViewController *singleVC = [[SingleWordViewController alloc] init];
+                singleVC.model = model;
+                [self.navigationController pushViewController:singleVC animated:YES];
+            }]];
+        }
+    } else {
+        UILabel *noresultLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, kScreenWidth - 60, 50)];
+        noresultLabel.text = @"没有记录，快去写字吧~";
+        noresultLabel.font = [UIFont fontWithName:@"-" size:20];
+        [self.otherContentView addSubview:noresultLabel];
     }
 }
 
