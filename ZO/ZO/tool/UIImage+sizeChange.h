@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage_sizeChange : UIView
+@interface UIImage (sizeChange)
+
+-(UIImage*)changeSize:(CGSize)size;
+
+-(UIImage*)changeSizeWithMulti:(CGFloat)multi;
 
 @end
