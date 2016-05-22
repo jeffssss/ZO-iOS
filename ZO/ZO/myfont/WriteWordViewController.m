@@ -7,7 +7,7 @@
 //
 
 #import "WriteWordViewController.h"
-#import "ZO-Swift.h"
+#import "AFBrushBoard.h"
 #import "ZOPNGManager.h"
 #import "FMDBHelper.h"
 #import "SimpleNavigationBarView.h"
@@ -106,7 +106,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)onClearBtnClick{
-    [self.brushBoard btnClick];
+    [self.brushBoard cleanBtnDidClick];
 }
 -(void)onCompleteBtnClick{
     if([self.nameString length]!=1){

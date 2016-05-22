@@ -33,7 +33,6 @@
 		C24A18481C8D5B2100FEFF21 /* ZOPNGManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18471C8D5B2100FEFF21 /* ZOPNGManager.m */; };
 		C24A184B1C8D6AE300FEFF21 /* WriteWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A184A1C8D6AE300FEFF21 /* WriteWordViewController.m */; };
 		C24A18541C8ECC8900FEFF21 /* InputNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A18531C8ECC8900FEFF21 /* InputNameView.m */; };
-		C24A185A1C901C2100FEFF21 /* AFBrushBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */; };
 		C254F7BB1C996384009E1441 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7BA1C996384009E1441 /* UIImage+Tint.m */; };
 		C254F7BE1C9ABB6B009E1441 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7BD1C9ABB6B009E1441 /* PreviewViewController.m */; };
 		C254F7C11C9ABD2A009E1441 /* SaveSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C254F7C01C9ABD2A009E1441 /* SaveSuccessViewController.m */; };
@@ -59,6 +58,7 @@
 		C289E4411CDCEB57002D7727 /* switch_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C289E43F1CDCEB57002D7727 /* switch_icon@2x.png */; };
 		C289E4421CDCEB57002D7727 /* switch_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C289E4401CDCEB57002D7727 /* switch_icon@3x.png */; };
 		C290FC391CD5E5790023B64A /* SimpleNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C290FC381CD5E5790023B64A /* SimpleNavigationBarView.m */; };
+		C2B29BDF1CF19376008EF6B0 /* AFBrushBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B29BDE1CF19376008EF6B0 /* AFBrushBoard.m */; };
 		C2BA977C1C9142E8007B7725 /* SingleWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */; };
 		C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA977E1C915A00007B7725 /* WordListViewController.m */; };
 		C2BA97821C916748007B7725 /* SingleWordCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BA97811C916748007B7725 /* SingleWordCollectionViewCell.m */; };
@@ -137,7 +137,6 @@
 		C24A18521C8ECC8900FEFF21 /* InputNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputNameView.h; sourceTree = "<group>"; };
 		C24A18531C8ECC8900FEFF21 /* InputNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputNameView.m; sourceTree = "<group>"; };
 		C24A18581C901C2000FEFF21 /* ZO-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZO-Bridging-Header.h"; sourceTree = "<group>"; };
-		C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFBrushBoard.swift; sourceTree = "<group>"; };
 		C254F7B91C996384009E1441 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		C254F7BA1C996384009E1441 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		C254F7BC1C9ABB6B009E1441 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
@@ -167,6 +166,8 @@
 		C289E4401CDCEB57002D7727 /* switch_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_icon@3x.png"; sourceTree = "<group>"; };
 		C290FC371CD5E5790023B64A /* SimpleNavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleNavigationBarView.h; sourceTree = "<group>"; };
 		C290FC381CD5E5790023B64A /* SimpleNavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNavigationBarView.m; sourceTree = "<group>"; };
+		C2B29BDD1CF19376008EF6B0 /* AFBrushBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFBrushBoard.h; sourceTree = "<group>"; };
+		C2B29BDE1CF19376008EF6B0 /* AFBrushBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFBrushBoard.m; sourceTree = "<group>"; };
 		C2BA977A1C9142E8007B7725 /* SingleWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleWordViewController.h; sourceTree = "<group>"; };
 		C2BA977B1C9142E8007B7725 /* SingleWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleWordViewController.m; sourceTree = "<group>"; };
 		C2BA977D1C915A00007B7725 /* WordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordListViewController.h; sourceTree = "<group>"; };
@@ -316,7 +317,8 @@
 			children = (
 				C254F7B91C996384009E1441 /* UIImage+Tint.h */,
 				C254F7BA1C996384009E1441 /* UIImage+Tint.m */,
-				C24A18591C901C2100FEFF21 /* AFBrushBoard.swift */,
+				C2B29BDD1CF19376008EF6B0 /* AFBrushBoard.h */,
+				C2B29BDE1CF19376008EF6B0 /* AFBrushBoard.m */,
 				C205707E1C89A6E20033D189 /* SealView.h */,
 				C205707F1C89A6E20033D189 /* SealView.m */,
 				C24A18401C8C0BB400FEFF21 /* FMDBHelper.h */,
@@ -590,6 +592,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B29BDF1CF19376008EF6B0 /* AFBrushBoard.m in Sources */,
 				C24A18481C8D5B2100FEFF21 /* ZOPNGManager.m in Sources */,
 				C237EE341CD4A09F00B35032 /* WordWithTZGView.m in Sources */,
 				C205708B1C8AD5AE0033D189 /* MyFontViewController.m in Sources */,
@@ -609,7 +612,6 @@
 				C2BA97891C92C4CB007B7725 /* CreateStuffViewController.m in Sources */,
 				C2BA97861C929A0E007B7725 /* ChooseTemplateViewController.m in Sources */,
 				C2D7664F1CAFBBFB00C5BDDA /* BezierPathAnimationView.m in Sources */,
-				C24A185A1C901C2100FEFF21 /* AFBrushBoard.swift in Sources */,
 				C2BA977F1C915A00007B7725 /* WordListViewController.m in Sources */,
 				C254F7BE1C9ABB6B009E1441 /* PreviewViewController.m in Sources */,
 				C254F7C11C9ABD2A009E1441 /* SaveSuccessViewController.m in Sources */,
