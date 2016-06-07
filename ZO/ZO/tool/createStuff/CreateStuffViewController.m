@@ -181,7 +181,7 @@
 
 -(KLCPopup *)inputNamePopup{
     if(nil == _inputNamePopup){
-        InputNameView *inputNameView = [[InputNameView alloc] initWithFrame:CGRectMake(kScreenWidth * 0.1, 0, kScreenWidth * 0.8, 120)];
+        InputNameView *inputNameView = [[InputNameView alloc] initWithFrame:CGRectMake(kScreenWidth * 0.1, 0, kScreenWidth * 0.8, 220)];
         inputNameView.inputNameDelegate = self;
         inputNameView.textFieldDelegate = self;
         _inputNamePopup = [KLCPopup popupWithContentView:inputNameView

@@ -136,7 +136,6 @@
 		C24A184A1C8D6AE300FEFF21 /* WriteWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteWordViewController.m; sourceTree = "<group>"; };
 		C24A18521C8ECC8900FEFF21 /* InputNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputNameView.h; sourceTree = "<group>"; };
 		C24A18531C8ECC8900FEFF21 /* InputNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputNameView.m; sourceTree = "<group>"; };
-		C24A18581C901C2000FEFF21 /* ZO-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZO-Bridging-Header.h"; sourceTree = "<group>"; };
 		C254F7B91C996384009E1441 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		C254F7BA1C996384009E1441 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		C254F7BC1C9ABB6B009E1441 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
@@ -325,7 +324,6 @@
 				C24A18411C8C0BB400FEFF21 /* FMDBHelper.m */,
 				C24A18461C8D5B2100FEFF21 /* ZOPNGManager.h */,
 				C24A18471C8D5B2100FEFF21 /* ZOPNGManager.m */,
-				C24A18581C901C2000FEFF21 /* ZO-Bridging-Header.h */,
 				C2D7664D1CAFBBFB00C5BDDA /* BezierPathAnimationView.h */,
 				C2D7664E1CAFBBFB00C5BDDA /* BezierPathAnimationView.m */,
 				C237C3001CDF28F6005DFDBB /* UIImage+sizeChange.h */,

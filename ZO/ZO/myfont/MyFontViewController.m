@@ -71,10 +71,13 @@
 
 -(UIButton *)writeWordBtn{
     if(nil == _writeWordBtn){
-        _writeWordBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.secondClassContentView.bottom +120, kScreenWidth, 30)];
+        _writeWordBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth/4.0, self.secondClassContentView.bottom +120, kScreenWidth/2.0, 30)];
         [_writeWordBtn setTitle:@"写字" forState:UIControlStateNormal];
-        [_writeWordBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [_writeWordBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_writeWordBtn setTarget:self action:@selector(onWriteBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        _writeWordBtn.layer.cornerRadius = _writeWordBtn.height/2.0;
+        _writeWordBtn.layer.borderColor = [UIColor blackColor].CGColor;
+        _writeWordBtn.layer.borderWidth = 2.0;
         [self.view addSubview:_writeWordBtn];
     }
     return _writeWordBtn;
@@ -82,7 +85,7 @@
 
 -(KLCPopup *)inputNamePopup{
     if(nil == _inputNamePopup){
-        InputNameView *inputNameView = [[InputNameView alloc] initWithFrame:CGRectMake(kScreenWidth * 0.1, 0, kScreenWidth * 0.8, 120)];
+        InputNameView *inputNameView = [[InputNameView alloc] initWithFrame:CGRectMake(kScreenWidth * 0.1, 0, kScreenWidth * 0.8, 220)];
         inputNameView.inputNameDelegate = self;
         inputNameView.textFieldDelegate = self;
         _inputNamePopup = [KLCPopup popupWithContentView:inputNameView
